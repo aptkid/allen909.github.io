@@ -9,7 +9,7 @@
   <title>文件上传的那些事（上） | warmeng</title>
   <meta name="author" content="Mr.w">
   
-  <meta name="description" content="文件上传的那些故事，不想在到网上搜着看了，s是时候来汇总收集一波了，大部分内容由nmask大神博客转载！nmask">
+  <meta name="description" content="文件上传的那些故事，不想在到网上搜着看了，是时候来汇总收集一波了，大部分内容由nmask大神博客转载！nmask">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -129,25 +129,23 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <p>文件上传的那些故事，不想在到网上搜着看了，s是时候来汇总收集一波了，大部分内容由nmask大神博客转载！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
+	  <p>文件上传的那些故事，不想在到网上搜着看了，是时候来汇总收集一波了，大部分内容由nmask大神博客转载！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
 <a id="more"></a>
 <hr>
 <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传是web应用中经常出现的功能，他允许用户上传文件到服务器并保存到特定的位置。这对安全来说是一个很敏感的问题，一旦恶意的应用程序被上传到服务器并获取到执行权限，后果将不堪设想。</p>
 <hr>
-<h2 id="文件上传先从解析漏洞开始"><a href="#文件上传先从解析漏洞开始" class="headerlink" title="文件上传先从解析漏洞开始"></a>文件上传先从解析漏洞开始</h2><p>###IIS5.X-IIS6.X<br>大多数用该容器的网站系统都是windows2003，用的脚本多为asp，一旦木马上传成功拥有较大的权限，该解析漏洞也只能asp文件，而不能解析aspx文件。<br>   目录解析：<br>  /xx.asp/xx.jpg<br>在网站下建立文件夹的名字为.asp,.asa,.cer的文件夹,该目录的任何扩展名的文件都被IIS当做asp文件来解析并且执行<br>   文件解析:<br>  xx.asp;.jgp<br>在IIS6.0下，分号后面的不被解析，也就是说在IIS6.0默认的可执行的文件中还包含xx.asa,xx.cer,xx.cdx这三种</p>
-<p>###iis 7.0/iis7.5/Nginx <8.03畸形解析漏洞 在默认fast-cgi开启的状况下，黑阔上传一个名字为wooyun.jpg，内容为<?php="" fputs(‘shell.php’,’w’),’<?php="" eval($_post[cmd]?)="">’);?&gt;的文件，然后访问wooyun.jpg/.php,在这个目录下就会生成一句话木马</8.03畸形解析漏洞></p>
-<p>###Nginx<br>0.5，0.6,0.7&lt;=0.7.65&amp;&amp;08&lt;=0.8.37<br>Nginx在图片中嵌入PHP代码然后通过访问XXX.JPG%00.PHP来执行其中的代码<br>0.5.<em>&amp;&amp;0.6.</em>&amp;&amp;0.7&lt;=0.7.65&amp;&amp;0.8&lt;=0.8.37<br>在以上NGINX容器的版本下，上传一个在WAF白名单之内扩展名的文件shell.jpg,然后用shell.jpg.php警醒请求<br>0.8.041-1.5.6<br>在以上的NGINX容器的版本下，上传一个waf白名单之内扩展名的文件shell.jpg，然后用shell.jpg%20.php进行请求</p>
-<p>###apache<br>Apache是从右到左开始判断解析，如果为不可识别解析，就在往左边判断.比如说wooyun.php.owf.rar，后面两种后缀是apache不可识别解析的，apache就会把该文件解析成php，所以如何判断是不是合法的后缀就是这个漏洞的利用关键，测试时可以尝试上传一个wooyun.php.rara.xxx…..（反正就是随意填）去测试是否是合法的后缀</p>
+<h2 id="文件上传先从解析漏洞开始"><a href="#文件上传先从解析漏洞开始" class="headerlink" title="文件上传先从解析漏洞开始"></a>文件上传先从解析漏洞开始</h2><h3 id="IIS5-X-IIS6-X"><a href="#IIS5-X-IIS6-X" class="headerlink" title="IIS5.X-IIS6.X"></a>IIS5.X-IIS6.X</h3><p>大多数用该容器的网站系统都是windows2003，用的脚本多为asp，一旦木马上传成功拥有较大的权限，该解析漏洞也只能asp文件，而不能解析aspx文件。<br>   目录解析：<br>  /xx.asp/xx.jpg<br>在网站下建立文件夹的名字为.asp,.asa,.cer的文件夹,该目录的任何扩展名的文件都被IIS当做asp文件来解析并且执行<br>   文件解析:<br>  xx.asp;.jgp<br>在IIS6.0下，分号后面的不被解析，也就是说在IIS6.0默认的可执行的文件中还包含xx.asa,xx.cer,xx.cdx这三种</p>
+<h3 id="iis-7-0-iis7-5-Nginx-lt-8-03畸形解析漏洞"><a href="#iis-7-0-iis7-5-Nginx-lt-8-03畸形解析漏洞" class="headerlink" title="iis 7.0/iis7.5/Nginx &lt;8.03畸形解析漏洞"></a>iis 7.0/iis7.5/Nginx &lt;8.03畸形解析漏洞</h3><p>在默认Fast-CGI开启的状况下，黑阔上传一个名字为wooyun.jpg，内容为&lt;?php fputs(‘shell.php’,’w’),’&lt;?php eval($_post[cmd]?)&gt;’);?&gt;的文件，然后访问wooyun.jpg/.php,在这个目录下就会生成一句话木马</p>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>0.5，0.6,0.7&lt;=0.7.65&amp;&amp;08&lt;=0.8.37<br>Nginx在图片中嵌入PHP代码然后通过访问XXX.JPG%00.PHP来执行其中的代码<br>0.5.<em>&amp;&amp;0.6.</em>&amp;&amp;0.7&lt;=0.7.65&amp;&amp;0.8&lt;=0.8.37<br>在以上NGINX容器的版本下，上传一个在WAF白名单之内扩展名的文件shell.jpg,然后用shell.jpg.php警醒请求<br>0.8.041-1.5.6<br>在以上的NGINX容器的版本下，上传一个waf白名单之内扩展名的文件shell.jpg，然后用shell.jpg%20.php进行请求</p>
+<h3 id="apache"><a href="#apache" class="headerlink" title="apache"></a>apache</h3><p>Apache是从右到左开始判断解析，如果为不可识别解析，就在往左边判断.比如说wooyun.php.owf.rar，后面两种后缀是apache不可识别解析的，apache就会把该文件解析成php，所以如何判断是不是合法的后缀就是这个漏洞的利用关键，测试时可以尝试上传一个wooyun.php.rara.xxx…..（反正就是随意填）去测试是否是合法的后缀</p>
 <p>##其他<br>如果在 Apache 的 conf 里有这样一行配置 AddHandler php5-script .php 这时只要文件名里包含.php 即使文件名是 test2.php.jpg 也会以 php 来执行。<br>  如果在 Apache 的 conf 里有这样一行配置 AddType application/x-httpd-php .jpg 即使扩展名是 jpg，一样能以 php 方式执行。</p>
 <hr>
-<p>##文件包含漏洞</p>
-<p>###本地包含</p>
-<p>普通本地包含<br>&lt;?php include_once(&amp;_GET[‘f’]); ?&gt;</p>
+<h2 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h2><h3 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h3><p>普通本地包含<br>&lt;?php include_once(&amp;_GET[‘f’]); ?&gt;</p>
 <p> Php?f=1.txt</p>
 <p>截断本地包含<br>Magic_quote_gpc为off的情况使用<br>Php?=1.txt%00</p>
 <p>长文件名截断</p>
 <p>&lt;?php  include_once($_GET[‘f’].”.php”); ?&gt;<br>Php?f=1.txt/././././././././././././././././././…………php</p>
-<p>###远程包含<br>这种默认情况下关闭的套路别用了，愁人！还有些什么session文件包含一句话什么的看不懂，暂时不研究。</p>
+<h3 id="远程包含"><a href="#远程包含" class="headerlink" title="远程包含"></a>远程包含</h3><p>这种默认情况下关闭的套路别用了，愁人！还有些什么session文件包含一句话什么的看不懂，暂时不研究。</p>
 	  
 	</div>
 
