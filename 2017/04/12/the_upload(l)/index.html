@@ -9,7 +9,7 @@
   <title>文件上传的那些事（下） | warmeng</title>
   <meta name="author" content="Mr.w">
   
-  <meta name="description" content="文件上传的那些故事，不想在到网上搜着看了，是时候来汇总收集一波了，大部分内容由nmask大神博客转载！nmask">
+  <meta name="description" content="绕过！nmask">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -129,9 +129,25 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <p>文件上传的那些故事，不想在到网上搜着看了，是时候来汇总收集一波了，大部分内容由nmask大神博客转载！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
+	  <p>绕过！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
 <a id="more"></a>
-<h1 id="换电脑的test，稍后更新。"><a href="#换电脑的test，稍后更新。" class="headerlink" title="换电脑的test，稍后更新。"></a>换电脑的test，稍后更新。</h1>	  
+<h1 id="各种文件上传绕过姿势"><a href="#各种文件上传绕过姿势" class="headerlink" title="各种文件上传绕过姿势"></a>各种文件上传绕过姿势</h1><h2 id="客户端绕过"><a href="#客户端绕过" class="headerlink" title="客户端绕过"></a>客户端绕过</h2><p>可以利用bp抓包改包，先上传一个gif类型的木马，然后通过burp将其改为asp/php/jsp后缀名即可。</p>
+<h2 id="服务端绕过"><a href="#服务端绕过" class="headerlink" title="服务端绕过"></a>服务端绕过</h2><h3 id="文件类型绕过"><a href="#文件类型绕过" class="headerlink" title="文件类型绕过"></a>文件类型绕过</h3><p>通过bp抓包，将content-type字段改为image/gif</p>
+<h3 id="文件头绕过"><a href="#文件头绕过" class="headerlink" title="文件头绕过"></a>文件头绕过</h3><p>在木马内容基础上再加了一些文件信息，有点像下面的结构<br>GIF89a&lt;?php phpinfo(); ?&gt;</p>
+<h3 id="文件后缀名绕过"><a href="#文件后缀名绕过" class="headerlink" title="文件后缀名绕过"></a>文件后缀名绕过</h3><p>前提：黑名单校验<br>黑名单检测：一般有个专门的 blacklist 文件，里面会包含常见的危险脚本文件。<br>绕过方法：<br>（1）找黑名单扩展名的漏网之鱼 - 比如 asa 和 cer 之类<br>（2）可能存在大小写绕过漏洞 - 比如 aSp 和 pHp 之类<br>能被解析的文件扩展名列表：<br>jsp jspx jspf<br>asp asa cer aspx<br>php php php3 php4<br>exe exee</p>
+<h2 id="配合文件包含漏洞"><a href="#配合文件包含漏洞" class="headerlink" title="配合文件包含漏洞"></a>配合文件包含漏洞</h2><p>前提：校验规则只校验当文件后缀名为asp/php/jsp的文件内容是否为木马。<br>绕过方式：（这里拿php为例，此漏洞主要存在于PHP中）<br>（1）先上传一个内容为木马的txt后缀文件，因为后缀名的关系没有检验内容；<br>（2）然后再上传一个.php的文件，内容为&lt;?php Include(“上传的txt文件路径”);?&gt;<br>此时，这个php文件就会去引用txt文件的内容，从而绕过校验</p>
+<h2 id="配合解析漏洞"><a href="#配合解析漏洞" class="headerlink" title="配合解析漏洞"></a>配合解析漏洞</h2><p>详情请看文件上传（上）</p>
+<h2 id="配合操作系统文件命名规则"><a href="#配合操作系统文件命名规则" class="headerlink" title="配合操作系统文件命名规则"></a>配合操作系统文件命名规则</h2><p>（1）上传不符合windows文件命名规则的文件名<br>　　test.asp.<br>　　test.asp(空格)<br>　　test.php:1.jpg<br>　　test.php::$DATA<br>　　shell.php::$DATA…….<br>会被windows系统自动去掉不符合规则符号后面的内容。<br>（2）linux下后缀名大小写<br>在linux下，如果上传php不被解析，可以试试上传pHp后缀的文件名。</p>
+<h2 id="配合其他规则"><a href="#配合其他规则" class="headerlink" title="配合其他规则"></a>配合其他规则</h2><p>   0x00截断：基于一个组合逻辑漏洞造成的，通常存在于构造上传文件路径的时候<br>　　test.php(0x00).jpg<br>　　test.php%00.jpg<br>　　路径/upload/1.php(0x00)，文件名1.jpg，结合/upload/1.php(0x00)/1.jpg</p>
+<hr>
+<h1 id="waf绕过"><a href="#waf绕过" class="headerlink" title="waf绕过"></a>waf绕过</h1><h2 id="垃圾数据"><a href="#垃圾数据" class="headerlink" title="垃圾数据"></a>垃圾数据</h2><p>有些主机WAF软件为了不影响web服务器的性能，会对校验的用户数据设置大小上限，比如1M。此种情况可以构造一个大文件，前面1M的内容为垃圾内容，后面才是真正的木马内容，便可以绕过WAF对文件内容的校验；<br><img src="/images/upload/1.png" alt=""><br>当然也可以将垃圾数据放在数据包最开头，这样便可以绕过对文件名的校验。<br><img src="/images/upload/2.png" alt=""><br>可以将垃圾数据加上Content-Disposition参数后面，参数内容过长，可能会导致waf检测出错。</p>
+<h2 id="filename"><a href="#filename" class="headerlink" title="filename"></a>filename</h2><p>针对早期版本安全狗，可以多加一个filename<br><img src="/images/upload/3.png" alt=""><br>或者将filename换位置，在IIS6.0下如果我们换一种书写方式，把filename放在其他地方：<br><img src="/images/upload/4.png" alt=""></p>
+<h2 id="post-get"><a href="#post-get" class="headerlink" title="post/get"></a>post/get</h2><p>有些WAF的规则是：如果数据包为POST类型，则校验数据包内容。<br>此种情况可以上传一个POST型的数据包，抓包将POST改为GET。</p>
+<h2 id="利用waf本身"><a href="#利用waf本身" class="headerlink" title="利用waf本身"></a>利用waf本身</h2><p>删除实体里面的Conten-Type字段<br><img src="/images/upload/5.png" alt=""><br>第一种是删除Content整行，第二种是删除C后面的字符。删除掉ontent-Type: image/jpeg只留下c，将.php加c后面即可，但是要注意额，双引号要跟着c.php。<br>删除Content-Disposition字段里的空格<br><img src="/images/upload/6.png" alt=""><br>增加一个空格导致安全狗被绕过案列：<br>Content-Type: multipart/form-data; boundary=—————————4714631421141173021852555099<br>尝试在boundary后面加个空格或者其他可被正常处理的字符：<br>boundary= —————————47146314211411730218525550<br>修改Content-Disposition字段值的大小写<br><img src="/images/upload/7.png" alt=""><br>文件名处回车<br><img src="/images/upload/8.png" alt=""></p>
+<h2 id="文件重命名绕过"><a href="#文件重命名绕过" class="headerlink" title="文件重命名绕过"></a>文件重命名绕过</h2><p>如果web程序会将filename除了扩展名的那段重命名的话，那么还可以构造更多的点、符号等等。<br><img src="/images/upload/9.png" alt=""></p>
+<hr>
+<p>文章出处：<br><a href="http://thief.one/" target="_blank" rel="external">文件上传漏洞(绕过姿势)| nMask’Blog</a><br><a href="https://xianzhi.aliyun.com/forum/read/458.html?fpage=2" target="_blank" rel="external">tools大牛</a></p>
+	  
 	</div>
 
 	<div>
