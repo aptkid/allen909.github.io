@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title><![CDATA[使用bp进行网站刷票]]></title>
+      <url>http://www.warmeng.com/2017/07/23/bp/</url>
+      <content type="html"><![CDATA[<p>别加班了，受不了了！</p>
+<a id="more"></a>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>即是网站刷票的一种思路，也是在渗透过程中被封ip的一种思路。</p>
+<h2 id="XFF"><a href="#XFF" class="headerlink" title="XFF"></a>XFF</h2><p>X-Forwarded-For:简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项。它不是RFC中定义的标准请求头信息，在squid缓存代理服务器开发文档中可以找到该项的详细介绍。标准格式如下：X-Forwarded-For: client1, proxy1, proxy2。</p>
+<h2 id="网页刷票的过程"><a href="#网页刷票的过程" class="headerlink" title="网页刷票的过程"></a>网页刷票的过程</h2><p>step1.<br>使用brupsuite对点击投票的地方进行抓包，并且在请求头中添加X-Forwarded-For。随便写一个ip地址，如下图：<br><img src="/images/20170723/1.jpg" alt=""><br>step2.<br>修改xff的值，此时发现之前投过票后仍然能投票了，如下图：<br><img src="/images/20170723/1.jpg" alt=""><br>step3.<br>对xff的值进行爆破，因为ip地址有XXX.XXX.XXX.XXX,所以你爆破的次数就是相当于你刷票的次数了，在爆破过程中需要注意线程不要太大，速度也不要太快，有的服务器也承受不了。具体参考bp使用手册中：<br><img src="/images/20170723/3.jpg" alt=""><br>step4.<br>睡觉去吧！</p>
+<hr>
+<h2 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a>思考总结</h2><p>记得在python群中，有人就问过，爬虫在爬取的过程中被封ip了怎么办，其实有的时候没有必要设置各种的代理，在headers中添加一个XFF就可以了，并且遍历一个ip的字典，再加上sleep（）函数完美解决问题。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 实战过程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 实战 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[自制python小工具]]></title>
       <url>http://www.warmeng.com/2017/07/01/pypypy/</url>
       <content type="html"><![CDATA[<p>2017上半年结束了！终于来到一个有网的地方！</p>
@@ -193,9 +220,9 @@
         
         <tags>
             
-            <tag> 社工 </tag>
-            
             <tag> 实战 </tag>
+            
+            <tag> 社工 </tag>
             
         </tags>
         
