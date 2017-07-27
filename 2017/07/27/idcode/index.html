@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>验证码破解实战（上篇） | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="不知道为什么pytesser始终都没有安装上，始终都用不了，但是听说那个误差挺大的，研究一套系统的验证码破解方法。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="验证码破解实战（上篇）"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 验证码破解实战（上篇）</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>不知道为什么pytesser始终都没有安装上，始终都用不了，但是听说那个误差挺大的，研究一套系统的验证码破解方法。</p>
+<a id="more"></a>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>查阅某度后，了解了一下验证码识别的大致思路：样本采集，图片处理，特征值比对。这个流程。</p>
+<h2 id="step1-样本采集"><a href="#step1-样本采集" class="headerlink" title="step1.样本采集"></a>step1.样本采集</h2><p>爬虫，还是爬虫。这里不需要多说<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line"></div><div class="line">def dowloadPic(imageUrl, filePath):</div><div class="line">    r = requests.get(imageUrl)</div><div class="line">    with open(filePath, <span class="string">"wb"</span>) as code:</div><div class="line">        code.write(r.content)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> xrange(1,51,1):</div><div class="line">    picpath = <span class="string">'http://cloud.xm.gov.cn/ids/admin/abc.code'</span></div><div class="line">    downpath = <span class="string">'/Users/nevermore/Desktop/yanzhengma'</span> + str(i) + <span class="string">'.jpg'</span></div><div class="line">    dowloadPic(picpath,downpath)</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="step2-图片处理"><a href="#step2-图片处理" class="headerlink" title="step2.图片处理"></a>step2.图片处理</h2><h3 id="二值化处理图片"><a href="#二值化处理图片" class="headerlink" title="二值化处理图片"></a>二值化处理图片</h3><p>这个二值化，设置一个阀值，通过这个阀值来把像素分类<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line">im = Image.open(<span class="string">'1.jpg'</span>)</div><div class="line">imgry = im.convert(<span class="string">'1'</span>)</div><div class="line">imgry.show()</div><div class="line"></div><div class="line">threshold = 140</div><div class="line">table = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(256):</div><div class="line">         <span class="keyword">if</span> i &lt;threshold:</div><div class="line">             table.append(0)</div><div class="line">         <span class="keyword">else</span>:</div><div class="line">             table.append(1)</div><div class="line"></div><div class="line">out = imgry.point(table,<span class="string">'1'</span>)</div><div class="line"></div><div class="line">imgry.save(<span class="string">"1.jpg"</span>)</div></pre></td></tr></table></figure></p>
+<p>此时的验证码如图：<br><img src="/images/20170727/1.png" alt=""></p>
+<h3 id="图片降噪分割"><a href="#图片降噪分割" class="headerlink" title="图片降噪分割"></a>图片降噪分割</h3><p>先将验证码图片进行降噪一次，如下图（原谅我没有用一张验证码的图，懒得调来调去了）：<br><img src="/images/20170727/2.png" alt=""><br>该图片是64x24的，根据图片像素和你的需求进行初步的裁剪（当然不是手工裁剪），然后再进行一次降噪，效果如下图：<br><img src="/images/20170727/3.png" alt=""><br><img src="/images/20170727/4.png" alt=""><br>接下来，图片分割元素，转换成非黑即白的图片格式，效果如图：<br><img src="/images/20170727/5.png" alt=""><br>附功能代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">def getPixel(image, x, y, G, N):</div><div class="line">    L = image.getpixel((x, y))</div><div class="line">    <span class="built_in">print</span> L</div><div class="line">    <span class="keyword">if</span> L &gt; G:</div><div class="line">        L = True</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        L = False</div><div class="line">    nearDots = 0</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x - 1, y - 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x - 1, y)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x - 1, y + 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x, y - 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x, y + 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x + 1, y - 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x + 1, y)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> L == (image.getpixel((x + 1, y + 1)) &gt; G):</div><div class="line">        nearDots += 1</div><div class="line">    <span class="keyword">if</span> nearDots &lt; N:</div><div class="line">        <span class="built_in">return</span> image.getpixel((x, y - 1))</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="built_in">return</span> None</div><div class="line">def clearNoise(image, G, N, Z):</div><div class="line">    draw = ImageDraw.Draw(image)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(0, Z):</div><div class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> xrange(1, image.size[0] - 1):</div><div class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> xrange(1, image.size[1] - 1):</div><div class="line">                color = getPixel(image, x, y, G, N)</div><div class="line">                <span class="keyword">if</span> color != None:</div><div class="line">                    draw.point((x, y), color)</div><div class="line"></div><div class="line">def main():</div><div class="line">    image = Image.open(<span class="string">"1.jpg"</span>)</div><div class="line">    image = image.convert(<span class="string">"1"</span>)</div><div class="line">    clearNoise(image, 170, 3, 1)</div><div class="line">    image = image.convert(<span class="string">"1"</span>)</div><div class="line">    image.save(<span class="string">"result.jpg"</span>)</div><div class="line">    img = Image.open(<span class="string">'result.jpg'</span>)</div><div class="line"></div><div class="line">    box = (2, 4, 62, 20)</div><div class="line">    region = img.crop(box)</div><div class="line">    region.show()</div><div class="line">    region.save(<span class="string">'result.jpg'</span>)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(1, 5, 1):</div><div class="line">        box = ((i - 1) * 15, 0, i * 15, 16)</div><div class="line">        f = Image.open(<span class="string">'result.jpg'</span>)</div><div class="line">        <span class="built_in">fg</span> = f.crop(box)</div><div class="line">        <span class="built_in">fg</span> = fg.convert(<span class="string">'1'</span>)</div><div class="line">        fg.show()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    main()</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="特征值比对"><a href="#特征值比对" class="headerlink" title="特征值比对"></a>特征值比对</h2><h3 id="将图片元素归类，并且把图片输出成txt格式的字符串，如下图所示："><a href="#将图片元素归类，并且把图片输出成txt格式的字符串，如下图所示：" class="headerlink" title="将图片元素归类，并且把图片输出成txt格式的字符串，如下图所示："></a>将图片元素归类，并且把图片输出成txt格式的字符串，如下图所示：</h3><p><img src="/images/20170727/6.png" alt=""><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> xrange(0,10,1):</div><div class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> xrange(1,11,1):</div><div class="line">        picpath = <span class="string">'/Users/nevermore/Desktop/yanzhengma/collection_fg/'</span>+str(x)+<span class="string">'/'</span>+str(y)+<span class="string">'.png'</span></div><div class="line">        def buildvector(im):</div><div class="line">            d1 = &#123;&#125;</div><div class="line">            count = 0</div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> im.getdata():</div><div class="line">                d1[count] = i</div><div class="line">                count += 1</div><div class="line"></div><div class="line">                <span class="keyword">if</span> i &gt; 200:</div><div class="line">                    j = 1</div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    j = 0</div><div class="line">                <span class="built_in">print</span> j</div><div class="line">                f = open(<span class="string">'/Users/nevermore/Desktop/yanzhengma/collection_fg/'</span>+str(x)+<span class="string">'/'</span>+str(y)+<span class="string">'.txt'</span>, <span class="string">'a+'</span>)</div><div class="line">                f.write(str(j))</div><div class="line">                f.close()</div><div class="line">            <span class="built_in">return</span> d1</div><div class="line"></div><div class="line">        <span class="built_in">print</span> picpath</div><div class="line">        im = Image.open(picpath)</div><div class="line">        im = im.convert(<span class="string">'1'</span>)</div><div class="line">        buildvector(im)</div></pre></td></tr></table></figure></p>
+<p>将需要识别的图片转换成字符串之后与你元素归类的所有字符串进行差异对比，没一个数字集合中取其平均值，返回最大平均值所在的位置即为，识别图片的字母<br><img src="/images/20170727/7.png" alt=""></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>接下来就是把这些代码功能片段整合，配合python的web爆破工具，功能拼接一下，变成一个完整的工具。未完待续。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2017/07/23/bp/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2017/07/27/idcode/" data-title="验证码破解实战（上篇）"
+         data-url="http://www.warmeng.com/2017/07/27/idcode/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-07-27 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/实战过程/">实战过程<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/实战/">实战<span>4</span></a></li> <li><a href="/tags/python/">python<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
