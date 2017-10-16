@@ -6,15 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>使用bp进行网站刷票 | warmeng</title>
+  <title>wifi万能钥匙所带来的信息泄漏 | warmeng</title>
   <meta name="author" content="Mr.w">
   
-  <meta name="description" content="别加班了，受不了了！">
+  <meta name="description" content="手机app，wifi万能钥匙另类玩法，大佬勿喷。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="使用bp进行网站刷票"/>
+  <meta property="og:title" content="wifi万能钥匙所带来的信息泄漏"/>
   <meta property="og:site_name" content="warmeng"/>
 
   
@@ -112,7 +112,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header">
-			<h1> 使用bp进行网站刷票</h1>
+			<h1> wifi万能钥匙所带来的信息泄漏</h1>
 		</div>
 	
 
@@ -129,13 +129,26 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <p>别加班了，受不了了！</p>
+	  <p>手机app，wifi万能钥匙另类玩法，大佬勿喷。</p>
 <a id="more"></a>
-<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>即是网站刷票的一种思路，也是在渗透过程中被封ip的一种思路。</p>
-<h2 id="XFF"><a href="#XFF" class="headerlink" title="XFF"></a>XFF</h2><p>X-Forwarded-For:简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项。它不是RFC中定义的标准请求头信息，在squid缓存代理服务器开发文档中可以找到该项的详细介绍。标准格式如下：X-Forwarded-For: client1, proxy1, proxy2。</p>
-<h2 id="网页刷票的过程"><a href="#网页刷票的过程" class="headerlink" title="网页刷票的过程"></a>网页刷票的过程</h2><p>step1.<br>使用brupsuite对点击投票的地方进行抓包，并且在请求头中添加X-Forwarded-For。随便写一个ip地址，如下图：<br><img src="/images/20170723/1.jpg" alt=""><br>step2.<br>修改xff的值，此时发现之前投过票后仍然能投票了，如下图：<br><img src="/images/20170723/2.jpg" alt=""><br>step3.<br>对xff的值进行爆破，因为ip地址有XXX.XXX.XXX.XXX,所以你爆破的次数就是相当于你刷票的次数了，在爆破过程中需要注意线程不要太大，速度也不要太快，有的服务器也承受不了。具体参考bp使用手册中：<br><img src="/images/20170723/3.jpg" alt=""><br>step4.<br>睡觉去吧！</p>
-<hr>
-<h2 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a>思考总结</h2><p>记得在python群中，有人就问过，爬虫在爬取的过程中被封ip了怎么办，其实有的时候没有必要设置各种的代理，在headers中添加一个XFF就可以了，并且遍历一个ip的字典，再加上sleep（）函数完美解决问题。</p>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>  手机流量超出2个g了，逼不得已下载万能钥匙蹭蹭wifi.这就发生了接下来的故事.</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.装有wifi万能钥匙的小米手机，因为小米手机连接wifi后可以直接读出wifi密码，这一点非常好。<br>2.附近有共享的wifi</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1."></a>step1.</h2><p>连接附近的wifi后读出密码，em…这应该是个妹子的wifi.如图：</p>
+<p><img src="/images/20171015/1.png" width="300" height="300"><br><img src="/images/20171015/2.jpg" width="300" height="300"></p>
+<p>所以这个妹子的名字是舒丽雅？</p>
+<p>接下来进入他的路由器，一般宽带账号会是自己的手机号。在登入路由器的时候输入密码123456发现不成功，直接试wifi密码shuliya123..，成功登入路由器，并且获取到妹子的手机号。</p>
+<p><img src="/images/20171015/3.jpg" width="300" height="300"></p>
+<p>##step2.<br>得知手机号后，在手机中存入手机号，打开qq通讯录或者微信通讯录，此时可以通过通讯录添加该妹子的qq或者微信。如图</p>
+<p><img src="/images/20171015/4.jpg" width="300" height="300"></p>
+<p>此时，发现一个问题，这样获取好友的时候没有得到妹子的具体qq号。但是还有办法，qq添加好友处有个条件搜索，我们根据妹子头像，qq名，性别，所在地，锁定妹子的qq号，见图.</p>
+<p><img src="/images/20171015/5.jpg" width="300" height="300"></p>
+<p>试了一下qq账号密码，发现密码错误，还加了一下妹子，想搭讪的，但是妹子高冷，回了2句话不理我了，哇！难受…..</p>
+<p>##step3.<br>哼，这就完了吗，我换wifi再尝试，经过3，4次的尝试过后，终于发现qq密码=wifi密码的组合，也是神了一般的运气，登录qq咯。发现需要手机安全验证，绕过之。<br>下载手机版腾讯安全中心。<br>比如说，腾讯的产品有一种登录方式是安全中心扫码登录。见图：</p>
+<p><img src="/images/20171015/6.png" width="300" height="300"></p>
+<p>下载手机安全中心，登录账号密码，此时需要验证，更换验证方式，选择跳过验证，账号处于未验证状态。如图所示：</p>
+<p><img src="/images/20171015/7.jpg" width="300" height="300"></p>
+<p>扫一扫功能扔可以使用！成功登入邮箱，网页qq等一系列的腾讯产品。</p>
+<p><img src="/images/20171015/8.png" width="300" height="300"><br><img src="/images/20171015/9.jpg" width="300" height="300"></p>
 	  
 	</div>
 
@@ -145,13 +158,12 @@ var _hmt = _hmt || [];
 
     
     
-    <a href="/2017/07/27/idcode/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> 上一頁</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/2017/07/01/pypypy/" type="button" class="btn btn-default ">下一頁<i
+    <a href="/2017/08/12/network_infiltration/" type="button" class="btn btn-default ">下一頁<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -167,8 +179,8 @@ var _hmt = _hmt || [];
     <h2 class="title">留言</h2>
 
     
-    <div class="ds-thread" data-thread-key="2017/07/23/bp/" data-title="使用bp进行网站刷票"
-         data-url="http://www.warmeng.com/2017/07/23/bp/"></div>
+    <div class="ds-thread" data-thread-key="2017/10/15/wifi-share/" data-title="wifi万能钥匙所带来的信息泄漏"
+         data-url="http://www.warmeng.com/2017/10/15/wifi-share/"></div>
     
 </section>
 
@@ -183,7 +195,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-07-23 
+	2017-10-15 
 	</div>
 	
 
@@ -194,7 +206,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/实战过程/">实战过程<span>6</span></a></li>
+    <li><a href="/categories/杂项/">杂项<span>2</span></a></li>
   </li>
 
     </ul>
@@ -207,7 +219,7 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/实战/">实战<span>7</span></a></li>
+  <li><a href="/tags/实战/">实战<span>7</span></a></li> <li><a href="/tags/攻略/">攻略<span>2</span></a></li>
     </ul>
 	</div>
 		

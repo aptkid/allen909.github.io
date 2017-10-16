@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title><![CDATA[wifi万能钥匙所带来的信息泄漏]]></title>
+      <url>http://www.warmeng.com/2017/10/15/wifi-share/</url>
+      <content type="html"><![CDATA[<p>手机app，wifi万能钥匙另类玩法，大佬勿喷。</p>
+<a id="more"></a>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>  手机流量超出2个g了，逼不得已下载万能钥匙蹭蹭wifi.这就发生了接下来的故事.</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.装有wifi万能钥匙的小米手机，因为小米手机连接wifi后可以直接读出wifi密码，这一点非常好。<br>2.附近有共享的wifi</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1."></a>step1.</h2><p>连接附近的wifi后读出密码，em…这应该是个妹子的wifi.如图：</p>
+<p><img src="/images/20171015/1.png" width="300" height="300"><br><img src="/images/20171015/2.jpg" width="300" height="300"></p>
+<p>所以这个妹子的名字是舒丽雅？</p>
+<p>接下来进入他的路由器，一般宽带账号会是自己的手机号。在登入路由器的时候输入密码123456发现不成功，直接试wifi密码shuliya123..，成功登入路由器，并且获取到妹子的手机号。</p>
+<p><img src="/images/20171015/3.jpg" width="300" height="300"></p>
+<p>##step2.<br>得知手机号后，在手机中存入手机号，打开qq通讯录或者微信通讯录，此时可以通过通讯录添加该妹子的qq或者微信。如图</p>
+<p><img src="/images/20171015/4.jpg" width="300" height="300"></p>
+<p>此时，发现一个问题，这样获取好友的时候没有得到妹子的具体qq号。但是还有办法，qq添加好友处有个条件搜索，我们根据妹子头像，qq名，性别，所在地，锁定妹子的qq号，见图.</p>
+<p><img src="/images/20171015/5.jpg" width="300" height="300"></p>
+<p>试了一下qq账号密码，发现密码错误，还加了一下妹子，想搭讪的，但是妹子高冷，回了2句话不理我了，哇！难受…..</p>
+<p>##step3.<br>哼，这就完了吗，我换wifi再尝试，经过3，4次的尝试过后，终于发现qq密码=wifi密码的组合，也是神了一般的运气，登录qq咯。发现需要手机安全验证，绕过之。<br>下载手机版腾讯安全中心。<br>比如说，腾讯的产品有一种登录方式是安全中心扫码登录。见图：</p>
+<p><img src="/images/20171015/6.png" width="300" height="300"></p>
+<p>下载手机安全中心，登录账号密码，此时需要验证，更换验证方式，选择跳过验证，账号处于未验证状态。如图所示：</p>
+<p><img src="/images/20171015/7.jpg" width="300" height="300"></p>
+<p>扫一扫功能扔可以使用！成功登入邮箱，网页qq等一系列的腾讯产品。</p>
+<p><img src="/images/20171015/8.png" width="300" height="300"><br><img src="/images/20171015/9.jpg" width="300" height="300"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 杂项 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 实战 </tag>
+            
+            <tag> 攻略 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[玩转linux系统之linux内网渗透【转载】]]></title>
       <url>http://www.warmeng.com/2017/08/12/network_infiltration/</url>
       <content type="html"><![CDATA[<p>非原创，转自nmask大佬文章，好东西，分享一波！原帖传送门:<br><a href="http://mp.weixin.qq.com/s/VJBnXq3--0HBD7eVeifOKA" target="_blank" rel="external">http://mp.weixin.qq.com/s/VJBnXq3–0HBD7eVeifOKA</a></p>
