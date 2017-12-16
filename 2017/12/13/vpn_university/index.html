@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>VPN的安全问题 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="tips：clearev！！">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="VPN的安全问题"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> VPN的安全问题</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>  tips：clearev！！<br><a id="more"></a></p>
+<h1 id="step1-引子"><a href="#step1-引子" class="headerlink" title="step1.引子"></a>step1.引子</h1><p>6月，是毕业的季节，当时公司的生活和学校的毕业让我不间断的切换自己的身份。正在公司里面干着渗透活的时候，朋友突然给我发了信息。问我他挂了很多门课，能不能黑掉教务网帮他改掉成绩。em…我自己大学物理和体育都挂了四年，都从来没有想过改成绩这种艺高人胆大的招式。我答应了！很兴奋！因为我看到了一个大大的越权！修改管理员的密码！管理员能做什么？！改成绩，交学费！改完成绩，我通知了我的朋友。但是我开始害怕，因为这是作弊，良心上也有愧疚。和朋友协商后，最终把成绩又改了回来。当时这个漏洞我并没有记录下来，当我想重新记录的时候已经是十九大的召开了，得知，学校把教务网弄成内网访问。后来我便放弃了。谁知道偶然间，故事就开始了</p>
+<h1 id="step2-VPN"><a href="#step2-VPN" class="headerlink" title="step2.VPN"></a>step2.VPN</h1><p>做渗透的生活就是，有活干活，没活网上乱逛。我偶然间看到了北京大学的VPN，突然想到朋友的大学会不会也有VPN？VPN是否有机会让我爆破出账号？连接VPN我是不是能访问那个关进小黑屋的教务网？百度，intitile，inurl，最终我看到了这些东西。<br><img src="/images/20171212/1.png" alt=""><br><img src="/images/20171212/2.png" alt=""><br>直接告诉了我如何去爆破，笑出声！成功获得几枚vpn账号。<br><img src="/images/20171212/3.png" alt=""><br>成功登录，接下来就是配置mac下的easyconnect。<br><img src="/images/20171212/4.png" alt=""><br><img src="/images/20171212/5.png" alt=""></p>
+<h1 id="step2-纵向越权"><a href="#step2-纵向越权" class="headerlink" title="step2.纵向越权"></a>step2.纵向越权</h1><p>连接VPN后，我果然可以访问教务网了。先登录（统一都是默认口令，所以只需要知道学号就ok）。来到修改密码处我傻眼了，当初的越权可能已经修复！当初修改密码是不用填写原密码的。<br><img src="/images/20171212/6.png" alt=""><br>可是我还是不甘心，抓包看看先。发现确实是多了参数导致我不能越权了。见下图：<br><img src="/images/20171212/7.png" alt=""></p>
+<h1 id="step3-内网"><a href="#step3-内网" class="headerlink" title="step3.内网"></a>step3.内网</h1><p>既然连接了vpn，进入了内网，怎么可能空手而归？打开win7虚拟机，先看路由信息然后在扫永恒之蓝吧！<br><img src="/images/20171212/9.png" alt=""><br>看到这里其实我心情还是复杂的，窃喜？开心？不，实在是鄙夷这些学校的安全意识，这样其实遭殃的是学生！<br><img src="/images/20171212/10.png" alt=""><br><img src="/images/20171212/11.png" alt=""><br><img src="/images/20171212/12.png" alt=""><br><img src="/images/20171212/13.png" alt=""><br>很奇怪，提示有ms17010的服务器很多，但是成功的确没有几台，用NSA工具包也是这样，猜想可能有360？收集一下服务器admin的密码，然后清理痕迹。<br><img src="/images/20171212/14.png" alt=""></p>
+<h1 id="setp4-抽奖1"><a href="#setp4-抽奖1" class="headerlink" title="setp4.抽奖1"></a>setp4.抽奖1</h1><p>ip生成字典，账号=admnistrator，密码=收集到的密码，扔进kali九头蛇，抽奖！<br><img src="/images/20171212/15.png" alt=""><br><img src="/images/20171212/16.png" alt=""><br>这里是抽到了一些奖品的，我就不全部贴图了，登录一台发现是在工作状态中的，但是现在时间是12:06，工作人员很有可能是去吃午饭去了！而且发现我之前的猜想没有错，之前永恒之蓝没有成功的确实是有360.（有没有大佬有绕的方法？）赶紧cmd添加一个管理员账号并且隐藏起来（tips：用户名前面加一个符号$）。</p>
+<h1 id="setp5-抽奖2"><a href="#setp5-抽奖2" class="headerlink" title="setp5.抽奖2"></a>setp5.抽奖2</h1><p>业务系统一台一台的翻服务器太麻烦了，写了个脚本想要找出对应的web端口，如果能找到内网的教务网那就更好了，脚本如下，适当修改端口和后缀抽奖吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import requests</div><div class="line"></div><div class="line">a=&apos;http://&apos;</div><div class="line">c=&apos;:8084/index.action&apos;</div><div class="line">header=&#123;&#125;</div><div class="line">header[&quot;User-Agent&quot;] = &quot;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0&quot;</div><div class="line">f = open(&quot;/Users/nevermore/Desktop/ip.txt&quot;,&quot;r&quot;)</div><div class="line">lines = f.readlines()</div><div class="line">for line in lines:</div><div class="line">    line = line.strip()</div><div class="line">    result = a + line + c</div><div class="line">    #print result</div><div class="line">    try:</div><div class="line">        answer = requests.get(result,headers=header,timeout=3).status_code</div><div class="line">        if answer==200:</div><div class="line">            print result+&apos;sucess!!!!!!&apos;</div><div class="line">        else:</div><div class="line">            print answer+&apos;!!!&apos;+result</div><div class="line"></div><div class="line">    except Exception as e:</div><div class="line">        print &apos;error&apos;</div></pre></td></tr></table></figure></p>
+<p><img src="/images/20171212/17.png" alt=""><br><img src="/images/20171212/18.png" alt=""><br>运气不算太好，并没有什么有用的web出现，有没有大佬知道这个是干嘛用的吗？？？<br>但是重新登录之前的的服务器，发现了这样的界面。<br><img src="/images/20171212/19.png" alt=""><br>控制台看一波已经存储的密码，收录进字典。<br><img src="/images/20171212/20.png" alt=""><br>所以。。这竟然是管理校园网的嘛？询问了朋友，果然也能找到朋友的账号！<br><img src="/images/20171212/21.png" alt=""></p>
+<h1 id="step6-结束-amp-总结"><a href="#step6-结束-amp-总结" class="headerlink" title="step6.结束&amp;总结"></a>step6.结束&amp;总结</h1><p>其实我并不想早早结束，但是在一台服务器上面，我已经被管理员发现了，有点害怕，之前能改成绩和交学费，现在变成只能改网费。有点不甘心，但是却也不敢继续了。唉，VPN这里有好大的风险。本菜狗都能遨游鱼塘，那在校学生的信息恐怕早已在他人之手了。本文亮点没有，大佬轻喷，以后也要多学点硬件设备的知识，感觉内网这里思路还是太僵化了，要是有大牛带带就好了! (T_T)… </p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2017/10/30/struct2/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2017/12/13/vpn_university/" data-title="VPN的安全问题"
+         data-url="http://www.warmeng.com/2017/12/13/vpn_university/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-12-13 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/实战/">实战<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/实战过程/">实战过程<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
