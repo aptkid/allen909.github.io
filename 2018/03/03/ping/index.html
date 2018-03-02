@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>ping命令快速探测 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="route print有的时候没有任何显示，内网存活其实是下一步攻击的关键。
+搜罗搜罗，弄出一个python ping命令探测。但是总感觉有点不对劲。说不出来，求路过大佬指点。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ping命令快速探测"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> ping命令快速探测</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>route print有的时候没有任何显示，内网存活其实是下一步攻击的关键。</p>
+<p>搜罗搜罗，弄出一个python ping命令探测。但是总感觉有点不对劲。说不出来，求路过大佬指点。</p>
+<a id="more"></a>
+<h1 id="PING1-py"><a href="#PING1-py" class="headerlink" title="PING1.py"></a>PING1.py</h1><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>randomIP生成20000条ip进行内网ip筛选，perfectIP遍历所有的内网IP地址，采用携程的方式，但是出了点小状况，会失控会跑死，还在改进中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line">from random import sample</div><div class="line">from multiprocessing import Process</div><div class="line">import gevent</div><div class="line">from gevent import monkey</div><div class="line">from tasks_teach import verbose_ping</div><div class="line">monkey.patch_all()</div><div class="line"></div><div class="line"></div><div class="line">def randomIP():</div><div class="line">    a = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(0, 20000):</div><div class="line">        numbers = sample(range(1, 255), 4)</div><div class="line">        <span class="keyword">if</span> numbers[0] == 10:</div><div class="line">            randomR = <span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> numbers)</div><div class="line">            a.append(randomR)</div><div class="line">        <span class="keyword">if</span> numbers[0] == 172 and numbers[1]&gt;=16 and numbers[1]&lt;=31:</div><div class="line">            randomR = <span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> numbers)</div><div class="line">            a.append(randomR)</div><div class="line">        <span class="keyword">if</span> numbers[0] == 192 and numbers[1] == 168:</div><div class="line">            randomR = <span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> numbers)</div><div class="line">            a.append(randomR)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            pass</div><div class="line">    <span class="built_in">return</span> a</div><div class="line"></div><div class="line"></div><div class="line">def predictIP():</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="string">'10.'</span>, <span class="string">'172.'</span>, <span class="string">'192.168.'</span>):</div><div class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> (<span class="string">'10.'</span>, <span class="string">'172.'</span>):</div><div class="line">            numbers = sample(range(1, 255), 3)</div><div class="line">            IP = i + <span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> numbers)</div><div class="line">            <span class="built_in">print</span>(IP)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            numbers = sample(range(1, 255), 2)</div><div class="line">            IP = i + <span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> numbers)</div><div class="line">            <span class="built_in">print</span>(IP)</div><div class="line"></div><div class="line"></div><div class="line">def perfectIP():</div><div class="line">    bb = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="string">'10'</span>, <span class="string">'172'</span>, <span class="string">'192.168'</span>):</div><div class="line">        <span class="keyword">if</span> i == <span class="string">'10'</span>:</div><div class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> range(0, 255):</div><div class="line">                <span class="keyword">for</span> c <span class="keyword">in</span> range(0, 255):</div><div class="line">                    <span class="keyword">for</span> d <span class="keyword">in</span> (1, 254, 255):</div><div class="line">                        seq = (i, b, c, d)</div><div class="line">                        bb.append(<span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> seq))</div><div class="line">        <span class="keyword">if</span> i == <span class="string">'172'</span>:</div><div class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> range(16,31):</div><div class="line">                <span class="keyword">for</span> c <span class="keyword">in</span> range(0,255):</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">if</span> i == <span class="string">'192.168'</span>:</div><div class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> range(0, 255):</div><div class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> (1, 254, 255):</div><div class="line">                    seq = (i, c, d)</div><div class="line">                    bb.append(<span class="string">'.'</span>.join(str(_) <span class="keyword">for</span> _ <span class="keyword">in</span> seq))</div><div class="line">    <span class="built_in">return</span> bb</div><div class="line"></div><div class="line">def doping(ip):</div><div class="line">    verbose_ping(ip, 2, 1)</div><div class="line"></div><div class="line">def process_start(ips):</div><div class="line">    tasks = []</div><div class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</div><div class="line">        tasks.append(gevent.spawn(doping, ip))</div><div class="line">    gevent.joinall(tasks)</div><div class="line"></div><div class="line">def tasks_start(ips, flag=100):</div><div class="line"></div><div class="line">    ip_list = []</div><div class="line">    i = 0</div><div class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</div><div class="line">        i += 1</div><div class="line">        ip_list.append(ip)</div><div class="line">        <span class="keyword">if</span> i == flag:</div><div class="line">            p = Process(target=process_start, args=(ip_list,))</div><div class="line">            p.start()</div><div class="line">            ip_list = []</div><div class="line">            i = 0</div><div class="line">    <span class="keyword">if</span> len(ip_list) != 0:</div><div class="line">        p = Process(target=process_start, args=(ip_list,))</div><div class="line">        p.start()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    tasks_start(perfectIP())</div></pre></td></tr></table></figure></p>
+<h2 id="PING2-py"><a href="#PING2-py" class="headerlink" title="PING2.py"></a>PING2.py</h2><p>python构造icmp包探测存活</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line">import os, sys, socket, struct, select, time</div><div class="line"></div><div class="line">ICMP_ECHO_REQUEST = 8 </div><div class="line">def checksum(source_string):</div><div class="line"> </div><div class="line">  sum = 0</div><div class="line">  countTo = (len(source_string)/2)*2</div><div class="line">  count = 0</div><div class="line">  <span class="keyword">while</span> count&lt;countTo:</div><div class="line">    thisVal = ord(source_string[count + 1])*256 + ord(source_string[count])</div><div class="line">    sum = sum + thisVal</div><div class="line">    sum = sum &amp; 0xffffffff </div><div class="line">    count = count + 2</div><div class="line">  <span class="keyword">if</span> countTo&lt;len(source_string):</div><div class="line">    sum = sum + ord(source_string[len(source_string) - 1])</div><div class="line">    sum = sum &amp; 0xffffffff </div><div class="line">  sum = (sum &gt;&gt; 16) + (sum &amp; 0xffff)</div><div class="line">  sum = sum + (sum &gt;&gt; 16)</div><div class="line">  answer = ~sum</div><div class="line">  answer = answer &amp; 0xffff</div><div class="line"></div><div class="line">  answer = answer &gt;&gt; 8 | (answer &lt;&lt; 8 &amp; 0xff00)</div><div class="line">  <span class="built_in">return</span> answer</div><div class="line">def receive_one_ping(my_socket, ID, timeout):</div><div class="line"></div><div class="line">  timeLeft = timeout</div><div class="line">  <span class="keyword">while</span> True:</div><div class="line">    startedSelect = time.time()</div><div class="line">    whatReady = select.select([my_socket], [], [], timeLeft)</div><div class="line">    howLongInSelect = (time.time() - startedSelect)</div><div class="line">    <span class="keyword">if</span> whatReady[0] == []: <span class="comment"># Timeout</span></div><div class="line">      <span class="built_in">return</span></div><div class="line">    timeReceived = time.time()</div><div class="line">    recPacket, addr = my_socket.recvfrom(1024)</div><div class="line">    icmpHeader = recPacket[20:28]</div><div class="line">    <span class="built_in">type</span>, code, checksum, packetID, sequence = struct.unpack(</div><div class="line">      <span class="string">"bbHHh"</span>, icmpHeader</div><div class="line">    )</div><div class="line">    <span class="keyword">if</span> packetID == ID:</div><div class="line">      bytesInDouble = struct.calcsize(<span class="string">"d"</span>)</div><div class="line">      timeSent = struct.unpack(<span class="string">"d"</span>, recPacket[28:28 + bytesInDouble])[0]</div><div class="line">      <span class="built_in">return</span> timeReceived - timeSent</div><div class="line">    timeLeft = timeLeft - howLongInSelect</div><div class="line">    <span class="keyword">if</span> timeLeft &lt;= 0:</div><div class="line">      <span class="built_in">return</span></div><div class="line">def send_one_ping(my_socket, dest_addr, ID):</div><div class="line"></div><div class="line">  dest_addr = socket.gethostbyname(dest_addr)</div><div class="line"> </div><div class="line">  my_checksum = 0</div><div class="line"></div><div class="line">  header = struct.pack(<span class="string">"bbHHh"</span>, ICMP_ECHO_REQUEST, 0, my_checksum, ID, 1)</div><div class="line"></div><div class="line">  bytesInDouble = struct.calcsize(<span class="string">"d"</span>)</div><div class="line">  data = (192 - bytesInDouble) * <span class="string">"Q"</span></div><div class="line">  data = struct.pack(<span class="string">"d"</span>, time.time()) + data</div><div class="line"></div><div class="line">  my_checksum = checksum(header + data)</div><div class="line"></div><div class="line">  header = struct.pack(<span class="string">"bbHHh"</span>, ICMP_ECHO_REQUEST, 0, socket.htons(my_checksum), ID, 1)</div><div class="line">  packet = header + data</div><div class="line">  my_socket.sendto(packet, (dest_addr, 1)) </div><div class="line">def do_one(dest_addr, timeout):</div><div class="line"></div><div class="line">  icmp = socket.getprotobyname(<span class="string">"icmp"</span>)</div><div class="line">  try:</div><div class="line">    my_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)</div><div class="line">  except socket.error, (errno, msg):</div><div class="line">    <span class="keyword">if</span> errno == 1:</div><div class="line"></div><div class="line">      msg = msg + (</div><div class="line">        <span class="string">" - Note that ICMP messages can only be sent from processes"</span></div><div class="line">        <span class="string">" running as root."</span></div><div class="line">      )</div><div class="line">      raise socket.error(msg)</div><div class="line">    raise </div><div class="line">  my_ID = os.getpid() &amp; 0xFFFF</div><div class="line">  send_one_ping(my_socket, dest_addr, my_ID)</div><div class="line">  delay = receive_one_ping(my_socket, my_ID, timeout)</div><div class="line">  my_socket.close()</div><div class="line">  <span class="built_in">return</span> delay</div><div class="line">def verbose_ping(dest_addr, timeout = 2, count = 100):</div><div class="line"></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> xrange(count):</div><div class="line">    <span class="built_in">print</span> <span class="string">"ping %s...\n"</span> % dest_addr,</div><div class="line">    try:</div><div class="line">      delay = do_one(dest_addr, timeout)</div><div class="line">    except socket.gaierror, e:</div><div class="line">      <span class="built_in">print</span> <span class="string">"failed. (socket error: '%s')"</span> % e[1]</div><div class="line">      <span class="built_in">break</span></div><div class="line">    <span class="keyword">if</span> delay == None:</div><div class="line">      <span class="built_in">print</span> <span class="string">"failed. (timeout within %ssec.)"</span> % timeout</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">      delay = delay * 1000</div><div class="line">      <span class="built_in">print</span> <span class="string">"get ping in %0.4fms"</span> % delay</div><div class="line"><span class="comment"># if __name__ == '__main__':</span></div><div class="line"><span class="comment">#   verbose_ping("www.aasdasdasdasdad.com",2,1)</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>先这样发了….跑死和性能不知道怎么再优化..有大佬指点下吗？之后再来进行修改吧。哪天抽空弄个评论区，有大佬指点的话联系qq2874385505，不胜感激。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2017/12/13/vpn_university/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2018/03/03/ping/" data-title="ping命令快速探测"
+         data-url="http://www.warmeng.com/2018/03/03/ping/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-03-03 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/杂项/">杂项<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/python/">python<span>6</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
