@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title><![CDATA[一次奇怪的暗链排查经历]]></title>
+      <url>http://www.warmeng.com/2018/05/31/YJ/</url>
+      <content type="html"><![CDATA[<p>知道创宇盾监测到某政府网站存在暗链，监测报告发出去之后，才发现事情没有那么简单。</p>
+<a id="more"></a>
+<h2 id="初始事件"><a href="#初始事件" class="headerlink" title="初始事件"></a>初始事件</h2><p>  某平台对某gov政府实时监测，突然预警，存在暗链，并且将地址直接爆出来：<a href="http://www.XXXX.gov.cn/qlwbsnmxb/54225.html。" target="_blank" rel="external">http://www.XXXX.gov.cn/qlwbsnmxb/54225.html。</a><br>对其进行访问，直接跳转至博彩网站，如下图所示：<br><img src="/images/20180531/1.png" alt=""><br><img src="/images/20180531/2.png" alt=""><br><img src="/images/20180531/3.png" alt=""><br>我和我的小伙伴惊呆了，当时出的结论是后台沦陷？服务器沦陷？未授权访问的编辑器可以上传html？于是给的关停整改的一系列建议。</p>
+<h2 id="事件发酵"><a href="#事件发酵" class="headerlink" title="事件发酵"></a>事件发酵</h2><p>  监测方and被监测方and我，人隔三地。这个时候，被监测方说，他们访问是404，并没有暗链的页面。但是，当时我和我的小伙伴都能发生跳转的。而且令人奇怪的事情是：<br>根目录下是正常的，出现暗链的页面明显在一个二级目录下面，这他妈不是妥妥的被黑掉了嘛？与被监测方沟通，让他们检查源码，覆盖备份等方式去监测是否服务器沦陷。<br>但是最终结果是服务器的的确确是安全的？难道dns劫持？流量劫持？限制ip？有点懵逼了已经。ip138查询该网站的IP地址为47.75.XX.XX，香港阿里云。<br><img src="/images/20180531/4.png" alt=""><br>而他们的网站真实IP应该是61.xx.xx.xx。我再询问，是否是域名服务商出问题了，他们说也完全没有问题。我已经懵逼了，为什么根目录是好的网站，二级目录下面的暗链不存在？</p>
+<h2 id="事件推理"><a href="#事件推理" class="headerlink" title="事件推理"></a>事件推理</h2><p>  咨询大佬，大佬给的结论是dns劫持，当时的想法是，根目录下是真的网站，dns劫持不是应该全部劫持嘛？纠结住了。我在绑定了hosts文件后，发现在访问那个暗链的html真的404了。<br>卧槽，这他妈是什么情况？<br><img src="/images/20180531/5.png" alt=""><br>与小伙伴讨论，小伙伴也惊呆了，猜测的结论是域名服务商的账号被搞了，域名绑定到别的IP地址，采用nginx反向代理。但是被监测方他说域名服务商没有问题。<br><img src="/images/20180531/6.png" alt=""><br>em….好吧，我们开始nslookup、微步在线情报分析、dig @+trace，发现了一条比较奇怪的cname值：XXXgov.com.amdc6676.net。如图所示：<br><img src="/images/20180531/7.png" alt=""><br><img src="/images/20180531/8.png" alt=""><br><img src="/images/20180531/9.png" alt=""><br>针对这个咨询大佬。大佬给了肯定的答复！<br><img src="/images/20180531/10.png" alt=""><br>那这就应该是被人改掉了，cname的值。域名服务商管理平台那里的事情，再与被监测方沟通。此时眉目初现。<br><img src="/images/20180531/11.png" alt=""></p>
+<h2 id="事件尾声"><a href="#事件尾声" class="headerlink" title="事件尾声"></a>事件尾声</h2><p>  领导问，为什么验证的时候说下结论说是有暗链，是沦陷。当时我就怂了，但是这个锅确实是我的错误，赶紧背锅QAQ。次日，被监测方检查完毕，如图所示：<br><img src="/images/20180531/12.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  虽然犯错了，但是我觉得整个事件还是挺有意义，我这条小菜鸡在这个事件中受益匪浅。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 攻略 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 攻略 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ping命令快速探测]]></title>
       <url>http://www.warmeng.com/2018/03/03/ping/</url>
       <content type="html"><![CDATA[<p>route print有的时候没有任何显示，内网存活其实是下一步攻击的关键。</p>
@@ -635,9 +662,9 @@ msf上的相应模块
         
         <tags>
             
-            <tag> 实战 </tag>
-            
             <tag> 社工 </tag>
+            
+            <tag> 实战 </tag>
             
         </tags>
         
