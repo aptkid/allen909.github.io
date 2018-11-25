@@ -4,6 +4,104 @@
   
     
     <entry>
+      <title><![CDATA[搜索引擎及爆菊总结]]></title>
+      <url>http://www.warmeng.com/2018/11/25/bj/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最开始是想收集一下最快互联网最快getshell的方法，但是后面在实际的操作过程中发现了不少坑，最后只能当作总结一下搜索引擎攻击方式吧，平时也能练练手。</p>
+<a id="more"></a>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">https://www.freebuf.com/column/186093.html</div><div class="line">https://fofa.so/</div><div class="line">http://www.google.com/</div><div class="line">https://thief.one/2017/05/19/1/</div></pre></td></tr></table></figure>
+<h2 id="一-谷歌专用"><a href="#一-谷歌专用" class="headerlink" title="一.谷歌专用"></a>一.谷歌专用</h2><h3 id="GOOGLE基本语法"><a href="#GOOGLE基本语法" class="headerlink" title="GOOGLE基本语法"></a>GOOGLE基本语法</h3><p>Index of/　　使用它可以直接进入网站首页下的所有文件和文件夹中。</p>
+<p>intext:　　将返回所有在网页正文部分包含关键词的网页。</p>
+<p>intitle:　　将返回所有网页标题中包含关键词的网页。</p>
+<p>cache:　　搜索google里关于某些内容的缓存。</p>
+<p>define:　　搜索某个词语的定义。</p>
+<p>filetype:　　搜索指定的文件类型，如：.bak，.mdb，.inc等。</p>
+<p>info:　　查找指定站点的一些基本信息。</p>
+<p>inurl:　　搜索我们指定的字符是否存在于URL中。</p>
+<p>Link:　　link:thief.one可以返回所有和thief.one做了链接的URL。</p>
+<p>site:　　site:thief.one将返回所有和这个站有关的URL。</p>
+<p>+　　把google可能忽略的字列如查询范围。</p>
+<p>-　　把某个字忽略，例子：新加 -坡。</p>
+<p>~　　同意词。</p>
+<p>.　　单一的通配符。</p>
+<p>*　　通配符，可代表多个字母。</p>
+<p>“”　　精确查询。</p>
+<h3 id="GOOGLE爆菊专用"><a href="#GOOGLE爆菊专用" class="headerlink" title="GOOGLE爆菊专用"></a>GOOGLE爆菊专用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">intitle:☆銥繎夶蟲___Ёnd</div><div class="line">Intitle:FSO文件浏览器</div><div class="line">inurl:tunnel.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.aspx?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.nosocket.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.ashx?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:.asp?intitle:r00ts小组</div><div class="line">inurl:.jsp?intitle:※Jspspy web</div><div class="line">inurl:.jsp?intitle:孤水绕城</div><div class="line">inurl:ma1.jsp?intitle:[FC※HK]</div><div class="line">inurl:.jsp?intitle:jshell</div><div class="line">inurl:.txt?intext:Hacked by</div><div class="line">inurl:.jsp?intext:by 慈勤强</div></pre></td></tr></table></figure>
+<h2 id="fofa语法及fofa专用"><a href="#fofa语法及fofa专用" class="headerlink" title="fofa语法及fofa专用"></a>fofa语法及fofa专用</h2><h3 id="fofa语法"><a href="#fofa语法" class="headerlink" title="fofa语法"></a>fofa语法</h3><p>title=”abc” 从标题中搜索abc。例：标题中有北京的网站。</p>
+<p>header=”abc” 从http头中搜索abc。例：jboss服务器。</p>
+<p>body=”abc” 从html正文中搜索abc。例：正文包含Hacked by。</p>
+<p>domain=”qq.com” 搜索根域名带有qq.com的网站。例： 根域名是qq.com的网站。</p>
+<p>host=”.gov.cn” 从url中搜索.gov.cn,注意搜索要用host作为名称。</p>
+<p>port=”443” 查找对应443端口的资产。例： 查找对应443端口的资产。</p>
+<p>ip=”1.1.1.1” 从ip中搜索包含1.1.1.1的网站,注意搜索要用ip作为名称。</p>
+<p>protocol=”https” 搜索制定协议类型(在开启端口扫描的情况下有效)。例： 查询https协议资产。</p>
+<p>city=”Beijing” 搜索指定城市的资产。例： 搜索指定城市的资产。</p>
+<p>region=”Zhejiang” 搜索指定行政区的资产。例： 搜索指定行政区的资产。</p>
+<p>country=”CN” 搜索指定国家(编码)的资产。例： 搜索指定国家(编码)的资产。</p>
+<p>cert=”google.com” 搜索证书(https或者imaps等)中带有google.com的资产。</p>
+<h3 id="fofa爆菊"><a href="#fofa爆菊" class="headerlink" title="fofa爆菊"></a>fofa爆菊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body=&quot;Error: username or password error,please input again&quot;</div><div class="line">body=&quot;Directory listing for&quot;||title=&quot;index of /&quot;||body=&quot;转到父目录&quot;</div><div class="line">body=&quot;ExtWebModels&quot;</div><div class="line">body=&quot;Error: username or password error,please input again&quot;</div><div class="line">(body=&quot;xxl-job-admin&quot;||body=&quot;&lt;a&gt;&lt;b&gt;XXL&lt;/b&gt;JOB&lt;/a&gt;&quot;)&amp;&amp;body=&quot;任务调度中心&quot;</div><div class="line">app=&quot;Adobe-ColdFusion&quot;</div><div class="line">app=&quot;MetInfo&quot;</div></pre></td></tr></table></figure>
+<h2 id="钟馗之眼"><a href="#钟馗之眼" class="headerlink" title="钟馗之眼"></a>钟馗之眼</h2><h3 id="钟馗之眼语法"><a href="#钟馗之眼语法" class="headerlink" title="钟馗之眼语法"></a>钟馗之眼语法</h3><p>app:nginx　　组件名</p>
+<p>ver:1.0　　版本</p>
+<p>os:windows　　操作系统</p>
+<p>country:　　国家</p>
+<p>city:　　城市</p>
+<p>port:80　　端口</p>
+<p>hostname:google　　主机名</p>
+<p>site:　　网站域名</p>
+<p>desc:　　描述</p>
+<p>keywords:　　关键词</p>
+<p>service:ftp　　服务类型</p>
+<p>ip:8.8.8.8　　ip地址</p>
+<p>cidr:8.8.8.8/24　　ip地址段</p>
+<h2 id="censys"><a href="#censys" class="headerlink" title="censys"></a>censys</h2><h3 id="censys语法"><a href="#censys语法" class="headerlink" title="censys语法"></a>censys语法</h3><p><a href="https://www.censys.io/certificates/help" target="_blank" rel="external">https://www.censys.io/certificates/help</a> 帮助文档</p>
+<p><a href="https://www.censys.io/ipv4?q=" target="_blank" rel="external">https://www.censys.io/ipv4?q=</a>  ip查询</p>
+<p><a href="https://www.censys.io/domain?q=" target="_blank" rel="external">https://www.censys.io/domain?q=</a>  域名查询</p>
+<p><a href="https://www.censys.io/certificates?q=" target="_blank" rel="external">https://www.censys.io/certificates?q=</a> 证书查询</p>
+<p>23.0.0.0/8 or 8.8.8.0/24　　可以使用and or not</p>
+<p>80.http.get.status_code: 200　　指定状态</p>
+<p>80.http.get.status_code:[200 TO 300]　　200-300之间的状态码</p>
+<p>location.country_code: DE　　国家</p>
+<p>protocols: (“23/telnet” or “21/ftp”)　　协议</p>
+<p>tags: scada　　标签</p>
+<p>80.http.get.headers.server：nginx　　服务器类型版本</p>
+<p>autonomous_system.description: University　　系统描述</p>
+<h2 id="shodan"><a href="#shodan" class="headerlink" title="shodan"></a>shodan</h2><h3 id="shodan语法"><a href="#shodan语法" class="headerlink" title="shodan语法"></a>shodan语法</h3><p>hostname：　　搜索指定的主机或域名，例如 hostname:”google”</p>
+<p>port：　　搜索指定的端口或服务，例如 port:”21”</p>
+<p>country：　　搜索指定的国家，例如 country:”CN”</p>
+<p>city：　　搜索指定的城市，例如 city:”Hefei”</p>
+<p>org：　　搜索指定的组织或公司，例如 org:”google”</p>
+<p>isp：　　搜索指定的ISP供应商，例如 isp:”China Telecom”</p>
+<p>product：　　搜索指定的操作系统/软件/平台，例如 product:”Apache httpd”</p>
+<p>version：　　搜索指定的软件版本，例如 version:”1.6.2”</p>
+<p>geo：　　搜索指定的地理位置，例如 geo:”31.8639, 117.2808”</p>
+<p>before/after：　　搜索指定收录时间前后的数据，格式为dd-mm-yy，例如 before:”11-11-15”</p>
+<p>net：　　搜索指定的IP地址或子网，例如 net:”210.45.240.0/24”</p>
+<h2 id="爆菊成果截图"><a href="#爆菊成果截图" class="headerlink" title="爆菊成果截图"></a>爆菊成果截图</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收获其实还可以，这里贴几张图。</p>
+<p><img src="/images/20181125/1.png" alt=""></p>
+<p><img src="/images/20181125/2.png" alt=""></p>
+<p><img src="/images/20181125/3.png" alt=""></p>
+<p><img src="/images/20181125/4.png" alt=""></p>
+<p><img src="/images/20181125/5.png" alt=""></p>
+<p><img src="/images/20181125/6.png" alt=""></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说来可笑，最初的目的是用regeorg的信息，达到最快日站的方式，但是真的获取该页面转入内网的时候突然发现自己不知道下一步什么做什么，结果还是要一点一点地收集信息，速度依旧很慢，不过在爆菊的结果看来有些学校被外国人占领，不少的外国政府网站被中国人占领，哈哈。最后借着这次机会借用下前辈们的文章总结一下搜索引擎吧。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 攻略 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 杂项 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[随笔记录一篇]]></title>
       <url>http://www.warmeng.com/2018/07/18/SBjl/</url>
       <content type="html"><![CDATA[<p>  方法都是前辈们的老方法，碰巧遇到个案例能将这些之前看到的老方法组合利用一波。确实能让人体会渗透的魅力。感谢那些分享方法的前辈们，让我们这小脚本小子得以生存QAQ</p>

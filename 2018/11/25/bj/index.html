@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>搜索引擎及爆菊总结 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最开始是想收集一下最快互联网最快getshell的方法，但是后面在实际的操作过程中发现了不少坑，最后只能当作总结一下搜索引擎攻击方式吧，平时也能练练手。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="搜索引擎及爆菊总结"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> 搜索引擎及爆菊总结</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最开始是想收集一下最快互联网最快getshell的方法，但是后面在实际的操作过程中发现了不少坑，最后只能当作总结一下搜索引擎攻击方式吧，平时也能练练手。</p>
+<a id="more"></a>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">https://www.freebuf.com/column/186093.html</div><div class="line">https://fofa.so/</div><div class="line">http://www.google.com/</div><div class="line">https://thief.one/2017/05/19/1/</div></pre></td></tr></table></figure>
+<h2 id="一-谷歌专用"><a href="#一-谷歌专用" class="headerlink" title="一.谷歌专用"></a>一.谷歌专用</h2><h3 id="GOOGLE基本语法"><a href="#GOOGLE基本语法" class="headerlink" title="GOOGLE基本语法"></a>GOOGLE基本语法</h3><p>Index of/　　使用它可以直接进入网站首页下的所有文件和文件夹中。</p>
+<p>intext:　　将返回所有在网页正文部分包含关键词的网页。</p>
+<p>intitle:　　将返回所有网页标题中包含关键词的网页。</p>
+<p>cache:　　搜索google里关于某些内容的缓存。</p>
+<p>define:　　搜索某个词语的定义。</p>
+<p>filetype:　　搜索指定的文件类型，如：.bak，.mdb，.inc等。</p>
+<p>info:　　查找指定站点的一些基本信息。</p>
+<p>inurl:　　搜索我们指定的字符是否存在于URL中。</p>
+<p>Link:　　link:thief.one可以返回所有和thief.one做了链接的URL。</p>
+<p>site:　　site:thief.one将返回所有和这个站有关的URL。</p>
+<p>+　　把google可能忽略的字列如查询范围。</p>
+<p>-　　把某个字忽略，例子：新加 -坡。</p>
+<p>~　　同意词。</p>
+<p>.　　单一的通配符。</p>
+<p>*　　通配符，可代表多个字母。</p>
+<p>“”　　精确查询。</p>
+<h3 id="GOOGLE爆菊专用"><a href="#GOOGLE爆菊专用" class="headerlink" title="GOOGLE爆菊专用"></a>GOOGLE爆菊专用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">intitle:☆銥繎夶蟲___Ёnd</div><div class="line">Intitle:FSO文件浏览器</div><div class="line">inurl:tunnel.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.aspx?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.nosocket.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:tunnel.ashx?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:.php?intext:Georg says, &apos;All seems fine&apos;</div><div class="line">inurl:.asp?intitle:r00ts小组</div><div class="line">inurl:.jsp?intitle:※Jspspy web</div><div class="line">inurl:.jsp?intitle:孤水绕城</div><div class="line">inurl:ma1.jsp?intitle:[FC※HK]</div><div class="line">inurl:.jsp?intitle:jshell</div><div class="line">inurl:.txt?intext:Hacked by</div><div class="line">inurl:.jsp?intext:by 慈勤强</div></pre></td></tr></table></figure>
+<h2 id="fofa语法及fofa专用"><a href="#fofa语法及fofa专用" class="headerlink" title="fofa语法及fofa专用"></a>fofa语法及fofa专用</h2><h3 id="fofa语法"><a href="#fofa语法" class="headerlink" title="fofa语法"></a>fofa语法</h3><p>title=”abc” 从标题中搜索abc。例：标题中有北京的网站。</p>
+<p>header=”abc” 从http头中搜索abc。例：jboss服务器。</p>
+<p>body=”abc” 从html正文中搜索abc。例：正文包含Hacked by。</p>
+<p>domain=”qq.com” 搜索根域名带有qq.com的网站。例： 根域名是qq.com的网站。</p>
+<p>host=”.gov.cn” 从url中搜索.gov.cn,注意搜索要用host作为名称。</p>
+<p>port=”443” 查找对应443端口的资产。例： 查找对应443端口的资产。</p>
+<p>ip=”1.1.1.1” 从ip中搜索包含1.1.1.1的网站,注意搜索要用ip作为名称。</p>
+<p>protocol=”https” 搜索制定协议类型(在开启端口扫描的情况下有效)。例： 查询https协议资产。</p>
+<p>city=”Beijing” 搜索指定城市的资产。例： 搜索指定城市的资产。</p>
+<p>region=”Zhejiang” 搜索指定行政区的资产。例： 搜索指定行政区的资产。</p>
+<p>country=”CN” 搜索指定国家(编码)的资产。例： 搜索指定国家(编码)的资产。</p>
+<p>cert=”google.com” 搜索证书(https或者imaps等)中带有google.com的资产。</p>
+<h3 id="fofa爆菊"><a href="#fofa爆菊" class="headerlink" title="fofa爆菊"></a>fofa爆菊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">body=&quot;Error: username or password error,please input again&quot;</div><div class="line">body=&quot;Directory listing for&quot;||title=&quot;index of /&quot;||body=&quot;转到父目录&quot;</div><div class="line">body=&quot;ExtWebModels&quot;</div><div class="line">body=&quot;Error: username or password error,please input again&quot;</div><div class="line">(body=&quot;xxl-job-admin&quot;||body=&quot;&lt;a&gt;&lt;b&gt;XXL&lt;/b&gt;JOB&lt;/a&gt;&quot;)&amp;&amp;body=&quot;任务调度中心&quot;</div><div class="line">app=&quot;Adobe-ColdFusion&quot;</div><div class="line">app=&quot;MetInfo&quot;</div></pre></td></tr></table></figure>
+<h2 id="钟馗之眼"><a href="#钟馗之眼" class="headerlink" title="钟馗之眼"></a>钟馗之眼</h2><h3 id="钟馗之眼语法"><a href="#钟馗之眼语法" class="headerlink" title="钟馗之眼语法"></a>钟馗之眼语法</h3><p>app:nginx　　组件名</p>
+<p>ver:1.0　　版本</p>
+<p>os:windows　　操作系统</p>
+<p>country:　　国家</p>
+<p>city:　　城市</p>
+<p>port:80　　端口</p>
+<p>hostname:google　　主机名</p>
+<p>site:　　网站域名</p>
+<p>desc:　　描述</p>
+<p>keywords:　　关键词</p>
+<p>service:ftp　　服务类型</p>
+<p>ip:8.8.8.8　　ip地址</p>
+<p>cidr:8.8.8.8/24　　ip地址段</p>
+<h2 id="censys"><a href="#censys" class="headerlink" title="censys"></a>censys</h2><h3 id="censys语法"><a href="#censys语法" class="headerlink" title="censys语法"></a>censys语法</h3><p><a href="https://www.censys.io/certificates/help" target="_blank" rel="external">https://www.censys.io/certificates/help</a> 帮助文档</p>
+<p><a href="https://www.censys.io/ipv4?q=" target="_blank" rel="external">https://www.censys.io/ipv4?q=</a>  ip查询</p>
+<p><a href="https://www.censys.io/domain?q=" target="_blank" rel="external">https://www.censys.io/domain?q=</a>  域名查询</p>
+<p><a href="https://www.censys.io/certificates?q=" target="_blank" rel="external">https://www.censys.io/certificates?q=</a> 证书查询</p>
+<p>23.0.0.0/8 or 8.8.8.0/24　　可以使用and or not</p>
+<p>80.http.get.status_code: 200　　指定状态</p>
+<p>80.http.get.status_code:[200 TO 300]　　200-300之间的状态码</p>
+<p>location.country_code: DE　　国家</p>
+<p>protocols: (“23/telnet” or “21/ftp”)　　协议</p>
+<p>tags: scada　　标签</p>
+<p>80.http.get.headers.server：nginx　　服务器类型版本</p>
+<p>autonomous_system.description: University　　系统描述</p>
+<h2 id="shodan"><a href="#shodan" class="headerlink" title="shodan"></a>shodan</h2><h3 id="shodan语法"><a href="#shodan语法" class="headerlink" title="shodan语法"></a>shodan语法</h3><p>hostname：　　搜索指定的主机或域名，例如 hostname:”google”</p>
+<p>port：　　搜索指定的端口或服务，例如 port:”21”</p>
+<p>country：　　搜索指定的国家，例如 country:”CN”</p>
+<p>city：　　搜索指定的城市，例如 city:”Hefei”</p>
+<p>org：　　搜索指定的组织或公司，例如 org:”google”</p>
+<p>isp：　　搜索指定的ISP供应商，例如 isp:”China Telecom”</p>
+<p>product：　　搜索指定的操作系统/软件/平台，例如 product:”Apache httpd”</p>
+<p>version：　　搜索指定的软件版本，例如 version:”1.6.2”</p>
+<p>geo：　　搜索指定的地理位置，例如 geo:”31.8639, 117.2808”</p>
+<p>before/after：　　搜索指定收录时间前后的数据，格式为dd-mm-yy，例如 before:”11-11-15”</p>
+<p>net：　　搜索指定的IP地址或子网，例如 net:”210.45.240.0/24”</p>
+<h2 id="爆菊成果截图"><a href="#爆菊成果截图" class="headerlink" title="爆菊成果截图"></a>爆菊成果截图</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收获其实还可以，这里贴几张图。</p>
+<p><img src="/images/20181125/1.png" alt=""></p>
+<p><img src="/images/20181125/2.png" alt=""></p>
+<p><img src="/images/20181125/3.png" alt=""></p>
+<p><img src="/images/20181125/4.png" alt=""></p>
+<p><img src="/images/20181125/5.png" alt=""></p>
+<p><img src="/images/20181125/6.png" alt=""></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说来可笑，最初的目的是用regeorg的信息，达到最快日站的方式，但是真的获取该页面转入内网的时候突然发现自己不知道下一步什么做什么，结果还是要一点一点地收集信息，速度依旧很慢，不过在爆菊的结果看来有些学校被外国人占领，不少的外国政府网站被中国人占领，哈哈。最后借着这次机会借用下前辈们的文章总结一下搜索引擎吧。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/07/18/SBjl/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2018/11/25/bj/" data-title="搜索引擎及爆菊总结"
+         data-url="http://www.warmeng.com/2018/11/25/bj/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-11-25 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/攻略/">攻略<span>7</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/杂项/">杂项<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
