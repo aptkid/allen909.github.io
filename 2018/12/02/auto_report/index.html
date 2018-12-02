@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>python-docx总结帖 | warmeng</title>
+  <meta name="author" content="Mr.w">
+  
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;其实我觉得markdown生成的pdf报告用来做渗透测试结果的报告多好，多好看。但是不行，作一作报告还得重写。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="python-docx总结帖"/>
+  <meta property="og:site_name" content="warmeng"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">warmeng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章的匯總.">
+			  <i class=""></i>歸檔
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有文章的分類.">
+			  <i class=""></i>分類
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有文件的標籤.">
+			  <i class=""></i>標籤
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="新垣結衣的小跟班.">
+			  <i class=""></i>關於我
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> python-docx总结帖</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实我觉得markdown生成的pdf报告用来做渗透测试结果的报告多好，多好看。但是不行，作一作报告还得重写。</p>
+<a id="more"></a>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">https://python-docx.readthedocs.io/en/latest/    官方文档</div><div class="line">https://stackoverrun.com    问答目录</div><div class="line">https://zhuanlan.zhihu.com/p/23708800</div><div class="line">https://zhuanlan.zhihu.com/p/22614722</div><div class="line">https://zhuanlan.zhihu.com/p/21716087</div><div class="line">https://zhuanlan.zhihu.com/p/21643475</div></pre></td></tr></table></figure>
+<h2 id="一-python-docx基本用法"><a href="#一-python-docx基本用法" class="headerlink" title="一.python-docx基本用法"></a>一.python-docx基本用法</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install python-docx</div></pre></td></tr></table></figure>
+<p>tips:这里建议安装好库之后找到库的文件，有的时候可以直接对库文件的代码进行修改。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>基本用法在以下代码中全部体现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">from docx import Document</div><div class="line">from docx.shared import Pt</div><div class="line">from docx.oxml.ns import qn</div><div class="line">from docx.shared import Inches</div><div class="line"></div><div class="line">#打开文档</div><div class="line">document = Document()</div><div class="line"></div><div class="line">#加入不同等级的标题</div><div class="line">document.add_heading(&apos;Document Title&apos;,0)</div><div class="line">document.add_heading(u&apos;二级标题&apos;,1)</div><div class="line">document.add_heading(u&apos;二级标题&apos;,2)</div><div class="line"></div><div class="line">#添加文本</div><div class="line">paragraph = document.add_paragraph(u&apos;添加了文本&apos;)</div><div class="line">#设置字号</div><div class="line">run = paragraph.add_run(u&apos;设置字号&apos;)</div><div class="line">run.font.size=Pt(24)</div><div class="line"></div><div class="line">#设置字体</div><div class="line">run = paragraph.add_run(&apos;Set Font,&apos;)</div><div class="line">run.font.name=&apos;Consolas&apos;</div><div class="line"></div><div class="line"></div><div class="line">#设置中文字体</div><div class="line">run = paragraph.add_run(u&apos;设置中文字体，&apos;)</div><div class="line">run.font.name=u&apos;宋体&apos;</div><div class="line">r = run._element</div><div class="line">r.rPr.rFonts.set(qn(&apos;w:eastAsia&apos;), u&apos;宋体&apos;)</div><div class="line"></div><div class="line">#设置斜体</div><div class="line">run = paragraph.add_run(u&apos;斜体、&apos;)</div><div class="line">run.italic = True</div><div class="line"></div><div class="line">#设置粗体</div><div class="line">run = paragraph.add_run(u&apos;粗体&apos;).bold = True</div><div class="line"></div><div class="line">#增加引用</div><div class="line">document.add_paragraph(&apos;Intense quote&apos;, style=&apos;Intense Quote&apos;)</div><div class="line"></div><div class="line">#增加有序列表</div><div class="line">document.add_paragraph(</div><div class="line">    u&apos;有序列表元素1&apos;,style=&apos;List Number&apos;</div><div class="line">)</div><div class="line">document.add_paragraph(</div><div class="line">    u&apos;有序列别元素2&apos;,style=&apos;List Number&apos;</div><div class="line">)</div><div class="line"></div><div class="line"></div><div class="line">#增加无序列表</div><div class="line">document.add_paragraph(</div><div class="line">    u&apos;无序列表元素1&apos;,style=&apos;List Bullet&apos;</div><div class="line">)</div><div class="line">document.add_paragraph(</div><div class="line">    u&apos;无序列表元素2&apos;,style=&apos;List Bullet&apos;</div><div class="line">)</div><div class="line"></div><div class="line">#增加图片（此处使用相对位置）</div><div class="line">#document.add_picture(&apos;jdb.jpg&apos;,width=Inches(1.25))</div><div class="line"></div><div class="line">#增加表格</div><div class="line">table = document.add_table(rows=3,cols=3)</div><div class="line">hdr_cells=table.rows[0].cells</div><div class="line">hdr_cells[0].text=&quot;第一列&quot;</div><div class="line">hdr_cells[1].text=&quot;第二列&quot;</div><div class="line">hdr_cells[2].text=&quot;第三列&quot;</div><div class="line"></div><div class="line"></div><div class="line">hdr_cells = table.rows[1].cells</div><div class="line">hdr_cells[0].text = &apos;2&apos;</div><div class="line">hdr_cells[1].text = &apos;aerszvfdgx&apos;</div><div class="line">hdr_cells[2].text = &apos;abdzfgxfdf&apos;</div><div class="line"></div><div class="line">hdr_cells = table.rows[2].cells</div><div class="line">hdr_cells[0].text = &apos;3&apos;</div><div class="line">hdr_cells[1].text = &apos;cafdwvaef&apos;</div><div class="line">hdr_cells[2].text = &apos;aabs zfgf&apos;</div><div class="line"></div><div class="line">#增加分页</div><div class="line">document.add_page_break()</div><div class="line"></div><div class="line">#保存文件</div><div class="line">document.save(&apos;demo.docx&apos;)</div></pre></td></tr></table></figure>
+<h3 id="表格style类型输出查看"><a href="#表格style类型输出查看" class="headerlink" title="表格style类型输出查看"></a>表格style类型输出查看</h3><p>文档中需要各种各样的类型，可以通过代码输出查看，也可以通过他的库文件直接查看。</p>
+<p>代码方式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">from docx import *</div><div class="line">document = Document()</div><div class="line">styles = document.styles</div><div class="line"></div><div class="line">for s in styles:</div><div class="line">    if s.type == WD_STYLE_TYPE.TABLE:</div><div class="line">        document.add_paragraph(&quot;表格样式 :  &quot;+ s.name)</div><div class="line">        table = document.add_table(3,3, style = s)</div><div class="line">        heading_cells = table.rows[0].cells</div><div class="line">        heading_cells[0].text = &apos;第一列内容&apos;</div><div class="line">        heading_cells[1].text = &apos;第二列内容&apos;</div><div class="line">        heading_cells[2].text = &apos;第三列内容&apos;</div><div class="line">        document.add_paragraph(&quot;\n&quot;)</div><div class="line"></div><div class="line">document.save(&apos;demo2.docx&apos;)</div></pre></td></tr></table></figure>
+<p>库文件查看或者修改他的默认样式：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网上下载python_docx-0.8.7-py2.py3-none-any.whl文件解压缩后文件夹中docx下面的template文件夹中存放了库的默认样式。如图。</p>
+<p><img src="/images/20181202/1.png" alt=""></p>
+<h2 id="自动化渗透测试报告"><a href="#自动化渗透测试报告" class="headerlink" title="自动化渗透测试报告"></a>自动化渗透测试报告</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MD，反正我就是觉得我们的报告长得丑！</p>
+<h3 id="漏洞标题"><a href="#漏洞标题" class="headerlink" title="漏洞标题"></a>漏洞标题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生成二级标题为漏洞的名字，并且改掉它的大小和颜色，也可以直接在库文件中修改默认的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">run = document.add_heading(u&apos;&apos;,2)</div><div class="line">run = run.add_run(str(count)+&apos;. &apos;+V[signal][1])</div><div class="line">run.font.size = Pt(16)</div><div class="line">run.font.color.rgb = RGBColor(0x00, 0x00, 0x00)</div></pre></td></tr></table></figure>
+<h3 id="漏洞表格"><a href="#漏洞表格" class="headerlink" title="漏洞表格"></a>漏洞表格</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用了很长的时间来画一个表格，其实我觉得这里应该是可以直接修改库文件的默认格式，把自己的格式给默认进去就方便很多了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">tables = document.add_table(rows=5, cols=4, style=&apos;Table Grid&apos;)</div><div class="line"></div><div class="line">    tables.alignment = WD_ALIGN_PARAGRAPH.CENTER  </div><div class="line"></div><div class="line">    tables.autofit = False</div><div class="line"></div><div class="line">    document.styles[&apos;Normal&apos;].font.name = u&apos;宋体&apos;</div><div class="line">    document.styles[&apos;Normal&apos;]._element.rPr.rFonts.set(qn(&apos;w:eastAsia&apos;), u&apos;宋体&apos;)</div><div class="line">    document.styles[&apos;Normal&apos;].font.size = Pt(14)</div><div class="line"></div><div class="line">    tables.cell(0, 2).vertical_alignment = WD_ALIGN_VERTICAL.CENTER  # 单元格居中</div><div class="line"></div><div class="line">    shading_elm_1 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))  </div><div class="line">    shading_elm_2 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))</div><div class="line">    shading_elm_3 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))</div><div class="line">    shading_elm_4 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))</div><div class="line">    shading_elm_5 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))</div><div class="line">    shading_elm_6 = parse_xml(r&apos;&lt;w:shd &#123;&#125; w:fill=&quot;BABABA&quot;/&gt;&apos;.format(nsdecls(&apos;w&apos;)))</div><div class="line"></div><div class="line">    for i in range(5):</div><div class="line">        tables.cell(i, 0).width = Inches(0.6) </div><div class="line">        tables.cell(i, 1).width = Inches(4.2)</div><div class="line">        tables.cell(i, 3).width = Inches(0.6)</div><div class="line">        tables.cell(i, 2).width = Inches(0.6)</div><div class="line">        tables.cell(i, 0).autofit = True</div><div class="line">        for j in range(4):</div><div class="line">            tables.cell(i, j).vertical_alignment = WD_ALIGN_VERTICAL.CENTER</div><div class="line"></div><div class="line">    tables.cell(0, 2)._tc.get_or_add_tcPr().append(shading_elm_1)  </div><div class="line">    tables.cell(0, 0)._tc.get_or_add_tcPr().append(shading_elm_2)</div><div class="line">    tables.cell(1, 0)._tc.get_or_add_tcPr().append(shading_elm_3)</div><div class="line">    tables.cell(2, 0)._tc.get_or_add_tcPr().append(shading_elm_4)</div><div class="line">    tables.cell(3, 0)._tc.get_or_add_tcPr().append(shading_elm_5)</div><div class="line">    tables.cell(4, 0)._tc.get_or_add_tcPr().append(shading_elm_6)</div><div class="line"></div><div class="line">    tables.cell(0, 0).text = &quot;漏洞名称&quot;</div><div class="line">    cell1 = tables.cell(0, 0)</div><div class="line">    run = cell1.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div><div class="line"></div><div class="line">    tables.cell(0, 2).autofit = True;</div><div class="line">    tables.cell(0, 3).autofit = True</div><div class="line">    tables.cell(0, 2).text = &quot;风险等级&quot;</div><div class="line">    cell2 = tables.cell(0, 2)</div><div class="line">    run = cell2.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div><div class="line"></div><div class="line">    tables.cell(1, 0).text = &quot;URL&quot;</div><div class="line">    tables.cell(1, 1).merge(tables.cell(1, 3))</div><div class="line">    cell3 = tables.cell(1, 0)</div><div class="line">    run = cell3.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div><div class="line"></div><div class="line">    tables.cell(2, 0).text = &quot;漏洞说明&quot;</div><div class="line">    tables.cell(2, 1).merge(tables.cell(2, 3))</div><div class="line">    cell4 = tables.cell(2, 0)</div><div class="line">    run = cell4.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div><div class="line"></div><div class="line">    tables.cell(3, 0).text = &quot;漏洞截图&quot;</div><div class="line">    tables.cell(3, 1).merge(tables.cell(3, 3))</div><div class="line">    cell5 = tables.cell(3, 0)</div><div class="line">    run = cell5.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div><div class="line"></div><div class="line">    tables.cell(4, 0).text = &quot;修复建议&quot;</div><div class="line">    tables.cell(4, 1).merge(tables.cell(4, 3))</div><div class="line">    cell6 = tables.cell(4, 0)</div><div class="line">    run = cell6.paragraphs[0].runs[0]</div><div class="line">    run.font.bold = True</div></pre></td></tr></table></figure>
+<h3 id="数据写入"><a href="#数据写入" class="headerlink" title="数据写入"></a>数据写入</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写入到表格的指定位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tables[count-1].cell(0, 1).text = V[signal][1]</div><div class="line">tables[count-1].cell(0, 3).text = V[signal][2]</div><div class="line">tables[count-1].cell(2, 1).text = V[signal][3]</div><div class="line">tables[count-1].cell(4, 1).text = V[signal][4]</div></pre></td></tr></table></figure>
+<h3 id="demo展示"><a href="#demo展示" class="headerlink" title="demo展示"></a>demo展示</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据提示信息，提供漏洞库数据的展示，拼音缩写对应的漏洞名称。报告的名称，并且在桌面生成。生成的漏洞表格的数量。其中的所有输入都有格式进行判断。最后使用pyinstaller分别在mac下和windows下打包。</p>
+<p><img src="/images/20181202/2.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mac下面的打包坑有点多啊，舍弃了单文件打包，但是windows下只要把default.docx拷出来就可以。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/11/25/bj/" type="button" class="btn btn-default ">下一頁<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">留言</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2018/12/02/auto_report/" data-title="python-docx总结帖"
+         data-url="http://www.warmeng.com/2018/12/02/auto_report/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-12-02 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/python/">python<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/杂项/">杂项<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'true' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>    次
+</span>
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 Mr.w
+  
+
+  <!--
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    -->
+</p>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
